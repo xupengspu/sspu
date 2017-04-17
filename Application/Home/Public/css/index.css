@@ -1,0 +1,259 @@
+/*公共样式*/
+.outerBox {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.mainBox {
+    margin: auto;
+    width: 1000px;
+}
+
+/*顶部横条样式*/
+.top-background {
+    background: #3e4440 none repeat scroll 0 0;
+    color: #666666;
+    line-height: 26px;
+}
+
+.top-background a.active {
+    color: #72ae62;
+}
+
+.top-background a {
+    color: #fff;
+    float: right;
+}
+
+/*logo部分样式*/
+
+.logo {
+    background: rgba(0, 0, 0, 0) url("/Public/images/logo.png") no-repeat scroll 0 0;
+    display: inline-block;
+    height: 50px;
+    margin-left: 10px;
+    width: 401px;
+}
+
+a {
+    color: #2b2b2b;
+    text-decoration: none;
+}
+
+.search_03 {
+    background: rgba(0, 0, 0, 0) url("/Public/images/search_03.png") no-repeat scroll 0 0;
+    display: inline-block;
+    float: right;
+    height: 40px;
+    width: 200px;
+}
+
+.nav_box {
+    float: right;
+}
+ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+ul.dropdown {
+    position: relative;
+    width: 100%;
+}
+ul.dropdown li {
+    background: #fff none repeat scroll 0 0;
+    float: left;
+    font-weight: bold;
+    min-width: 80px;
+    position: relative;
+}
+ul.dropdown > li > a {
+    border-bottom: 2px solid #fff;
+    color: #000;
+}
+ul.dropdown > li > a:hover {
+    border-bottom: 2px solid #77a956;
+    color: #000;
+}
+ul.dropdown > li > a.hover {
+    border-bottom: 2px solid #77a956;
+    color: #000;
+}
+ul.dropdown li a {
+    color: #585858;
+    display: block;
+    font-weight: 300;
+    padding: 5px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    z-index: 2000;
+}
+ul.dropdown li a:hover, ul.dropdown li a.hover {
+    color: #000;
+    position: relative;
+}
+ul.dropdown ul {
+    display: none;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 120px;
+    z-index: 1000;
+}
+ul.dropdown ul li {
+    color: #000;
+    font-weight: normal;
+}
+ul.dropdown ul li a {
+    color: #000 !important;
+    display: block;
+}
+ul.dropdown ul li a:hover {
+    color: #e4a946 !important;
+    display: block;
+}
+.drop > a {
+    position: relative;
+}
+
+/*banner 图片*/
+.bigtubg {
+    background: rgba(0, 0, 0, 0) url("/Public/images/big_03.png") no-repeat scroll center center;
+    height: 100%;
+    margin-bottom: 0;
+}
+
+/*链接样式*/
+.index-link-container {
+    background: #f6f5f4 none repeat scroll 0 0;
+    margin: 0 0 13px;
+    width: 100%;
+}
+
+
+.index-link-box {
+    border-left: 1px solid #fff;
+    border-right: 1px solid #ccc;
+    float: left;
+}
+.index-link-container {
+    background: #f6f5f4 none repeat scroll 0 0;
+    margin: 0 0 13px;
+    width: 100%;
+}
+
+.index-link-item:hover .index-list-name {
+    color: #437c5c;
+    display: block;
+    font-family: "黑体";
+    font-size: 13px;
+    line-height: 32px;
+}
+
+.index-link-item {
+    display: inline-block;
+    height: 100px;
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+    width: 196px;
+}
+.index-link-item:hover {
+    background: #fff none repeat scroll 0 0;
+    color: #fff;
+    display: inline-block;
+    height: 100px;
+    margin: 0;
+    padding: 10px 0;
+    width: 196px;
+}
+.list-dot-1 {
+    background-position: 0 0;
+}
+.index-list-dot {
+    background: rgba(0, 0, 0, 0) url("../images/index_03.png") no-repeat scroll 0 0;
+    display: inline-block;
+    height: 56px;
+    width: 56px;
+}
+
+.index-list-name {
+    color: #000;
+    display: block;
+    font-family: "黑体";
+    font-size: 13px;
+    line-height: 32px;
+}
+/*图片轮转*/
+.new-left {
+    float: left;
+    padding: 10px 3px;
+}
+
+.new-right {
+    float: right;
+    padding: 60px 10px 10px;
+    width: 480px;
+}
+.title-two {
+    border-top: 2px solid #407432;
+    color: #2b2b2b;
+    font-family: "黑体";
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    padding: 6px 0;
+}
+.lanmu_more {
+    float: right;
+    margin-top: 6px;
+}
+
+.focusImg_Box {
+    background: rgba(0, 0, 0, 0) url("../images/bg_071.png") repeat scroll 0 0;
+    height: 300px;
+    padding-left: 15px;
+    padding-top: 15px;
+    width: 463px;
+}
+
+.focusImg_Box {
+    background: rgba(0, 0, 0, 0) url("../images/bg_071.png") repeat scroll 0 0;
+    height: 300px;
+    padding-left: 15px;
+    padding-top: 15px;
+    width: 463px;
+}
+
+
+.title-content {
+    color: #2b2b2b;
+    font-family: "黑体";
+    font-size: 16px;
+    height: 50px;
+    line-height: 30px;
+    text-align: center;
+}
+
+
+.profile-content {
+    border-bottom: 1px solid #ccc;
+    color: #585858;
+    font-family: "黑体";
+    font-size: 13px;
+    height: 130px;
+    line-height: 30px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    text-align: left;
+}
+.contentBox1 {
+    padding: 1px;
+}
+
+.commonList_dot li {
+    background: rgba(0, 0, 0, 0) url("../images/list_dot_10.png") no-repeat scroll left center;
+    line-height: 24px;
+    text-indent: 10px;
+}
