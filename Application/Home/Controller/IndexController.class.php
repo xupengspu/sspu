@@ -15,4 +15,18 @@ class IndexController extends Controller {
     public function index(){
         $this->display('/index');
     }
+
+    /**
+     * 跳转至首页
+     */
+    public function content(){
+        $this->display('/contet');
+    }
+
+    /**
+     * 跳转至首页
+     */
+    public function lists(){
+        $this->display('/contet-list');
+    }
 }

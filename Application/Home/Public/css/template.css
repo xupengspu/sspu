@@ -1,0 +1,117 @@
+
+.mainBox {
+    margin: auto;
+    width: 1000px;
+}
+
+.leftNav {
+    float: left;
+    padding: 10px 15px;
+    text-align: center;
+    width: 240px;
+}
+
+.left-link-box {
+    font-family: "微软雅黑";
+    margin-top: 10px;
+}
+
+.left-link-item {
+    border: 1px solid #7ba362;
+    color: #585858;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 44px;
+    padding: 3px 0;
+    text-align: left;
+    text-indent: 10px;
+    width: 99%;
+}
+
+.left-link-box span {
+    color: #585858;
+}
+.er-list-dot-1 {
+    background-position: 0 -12px;
+}
+.list-dot {
+    background: rgba(0, 0, 0, 0) url("../images/leftbg_08.png") no-repeat scroll 0 0;
+    display: inline-block;
+    float: left;
+    height: 44px;
+    margin-left: 10px;
+    width: 44px;
+}
+
+.left-link-box span {
+    color: #585858;
+}
+
+.list_box_er {
+    float: right;
+    padding-top: 10px;
+    width: 700px;
+}
+.lanmu_box_new {
+    border-bottom: 1px solid #ccc;
+    height: 30px;
+    position: relative;
+}
+.present_con {
+    float: right;
+    height: 20px;
+    padding-left: 5px;
+}
+
+.present_con > ul > li {
+    height: 20px;
+}
+.present_ul > li {
+    color: #274e0d;
+    float: left;
+    font-size: 14px;
+    line-height: 20px;
+}
+.contentBox6 {
+    padding: 8px;
+}
+
+.content-title {
+    color: #2b2b2b;
+    font-size: 20px;
+    line-height: 30px;
+    padding: 10px 0;
+}
+
+.content-source {
+    color: #9f9f9f;
+    font-size: 12px;
+    line-height: 30px;
+}
+
+.content-body {
+    color: #676666;
+    line-height: 26px;
+    margin-top: 10px;
+}
+
+.content-back {
+    color: #e7aa31;
+    cursor: pointer;
+    float: right;
+}
+
+.commonList_dot li {
+    background: rgba(0, 0, 0, 0) url("/Public/images/list_dot_10.png") no-repeat scroll left center;
+    line-height: 24px;
+    text-indent: 10px;
+}
+.page {
+    float: right;
+    width: 700px;
+    margin-top: 60px;
+}
+
+.en-new-right a, span {
+    color: #fff;
+}

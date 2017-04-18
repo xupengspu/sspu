@@ -291,6 +291,13 @@ ul.dropdown ul li a:hover {
     width: 100%;
 }
 
+.profile-list-left .photo-img {
+    border-radius: 95px;
+    display: inline-block;
+    height: 96px;
+    width: 96px;
+}
+
 .profile-list-box {
     float: left;
     padding-left: 10px;
@@ -302,7 +309,7 @@ ul.dropdown ul li a:hover {
 }
 
 .title-one {
-    border-left: 2px solid #407432;
+    border-left: 2px solid #428bca;
     color: #fff;
     font-family: "黑体";
     font-size: 16px;
@@ -374,4 +381,75 @@ ul.dropdown ul li a:hover {
     font-family: "微软雅黑";
     font-size: 12px;
     line-height: 24px;
+}
+
+/*视频部分*/
+
+.video-left {
+    float: left;
+    width: 36%;
+}
+
+.xxjj {
+    float: left;
+    height: 190px;
+    width: 100%;
+}
+.list_box2 {
+    border: 0 solid #d8d4d4;
+}
+
+.lanmu_box_new {
+    border-bottom: 1px solid #ccc;
+    height: 30px;
+    position: relative;
+}
+
+.lanmu_box_new {
+    border-bottom: 1px solid #ccc;
+    height: 30px;
+    position: relative;
+}
+
+.lanmu_more {
+    float: right;
+    margin-top: 6px;
+}
+
+.video-right {
+    float: right;
+    width: 60%;
+}
+
+.copyBackground {
+    background: #6e9b62  none repeat scroll 0 0;
+    color: #fff;
+    margin-bottom: 0;
+    padding-bottom: 28px;
+    padding-top: 18px;
+    text-align: center;
+}
+
+.copyBackground .mainBox .goTop {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: -53px;
+}
+
+.copyRight_left {
+    display: inline-block;
+}
+
+.copyBackground a, p {
+    color: #fff;
+    line-height: 28px;
+    text-align: center;
+}
+
+
+.copyRight_right {
+    color: #fff;
+    float: right;
+    text-align: left;
 }
