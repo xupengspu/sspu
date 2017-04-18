@@ -1,4 +1,5 @@
 /**
+ * 下拉菜单效果
  * Created by spen on 2017/4/17.
  */
 (function ($) {

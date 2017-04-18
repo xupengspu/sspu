@@ -32,9 +32,16 @@
     display: inline-block;
     height: 50px;
     margin-left: 10px;
-    width: 401px;
+    width: 101px;
 }
+.logo-content{
+    position: relative;
+    top: -30px;
+    font-family: "黑体";
+    font-weight: 400;
+    font-size: 15px;
 
+}
 a {
     color: #2b2b2b;
     text-decoration: none;
@@ -51,15 +58,18 @@ a {
 .nav_box {
     float: right;
 }
+
 ul {
     list-style: outside none none;
     margin: 0;
     padding: 0;
 }
+
 ul.dropdown {
     position: relative;
     width: 100%;
 }
+
 ul.dropdown li {
     background: #fff none repeat scroll 0 0;
     float: left;
@@ -67,18 +77,22 @@ ul.dropdown li {
     min-width: 80px;
     position: relative;
 }
+
 ul.dropdown > li > a {
     border-bottom: 2px solid #fff;
     color: #000;
 }
+
 ul.dropdown > li > a:hover {
     border-bottom: 2px solid #77a956;
     color: #000;
 }
+
 ul.dropdown > li > a.hover {
     border-bottom: 2px solid #77a956;
     color: #000;
 }
+
 ul.dropdown li a {
     color: #585858;
     display: block;
@@ -89,10 +103,12 @@ ul.dropdown li a {
     text-decoration: none;
     z-index: 2000;
 }
+
 ul.dropdown li a:hover, ul.dropdown li a.hover {
     color: #000;
     position: relative;
 }
+
 ul.dropdown ul {
     display: none;
     left: 0;
@@ -101,18 +117,22 @@ ul.dropdown ul {
     width: 120px;
     z-index: 1000;
 }
+
 ul.dropdown ul li {
     color: #000;
     font-weight: normal;
 }
+
 ul.dropdown ul li a {
     color: #000 !important;
     display: block;
 }
+
 ul.dropdown ul li a:hover {
     color: #e4a946 !important;
     display: block;
 }
+
 .drop > a {
     position: relative;
 }
@@ -131,12 +151,12 @@ ul.dropdown ul li a:hover {
     width: 100%;
 }
 
-
 .index-link-box {
     border-left: 1px solid #fff;
     border-right: 1px solid #ccc;
     float: left;
 }
+
 .index-link-container {
     background: #f6f5f4 none repeat scroll 0 0;
     margin: 0 0 13px;
@@ -159,6 +179,7 @@ ul.dropdown ul li a:hover {
     text-align: center;
     width: 196px;
 }
+
 .index-link-item:hover {
     background: #fff none repeat scroll 0 0;
     color: #fff;
@@ -168,9 +189,11 @@ ul.dropdown ul li a:hover {
     padding: 10px 0;
     width: 196px;
 }
+
 .list-dot-1 {
     background-position: 0 0;
 }
+
 .index-list-dot {
     background: rgba(0, 0, 0, 0) url("../images/index_03.png") no-repeat scroll 0 0;
     display: inline-block;
@@ -185,6 +208,7 @@ ul.dropdown ul li a:hover {
     font-size: 13px;
     line-height: 32px;
 }
+
 /*图片轮转*/
 .new-left {
     float: left;
@@ -196,6 +220,7 @@ ul.dropdown ul li a:hover {
     padding: 60px 10px 10px;
     width: 480px;
 }
+
 .title-two {
     border-top: 2px solid #407432;
     color: #2b2b2b;
@@ -205,6 +230,7 @@ ul.dropdown ul li a:hover {
     margin-left: 10px;
     padding: 6px 0;
 }
+
 .lanmu_more {
     float: right;
     margin-top: 6px;
@@ -226,7 +252,6 @@ ul.dropdown ul li a:hover {
     width: 463px;
 }
 
-
 .title-content {
     color: #2b2b2b;
     font-family: "黑体";
@@ -235,7 +260,6 @@ ul.dropdown ul li a:hover {
     line-height: 30px;
     text-align: center;
 }
-
 
 .profile-content {
     border-bottom: 1px solid #ccc;
@@ -248,12 +272,106 @@ ul.dropdown ul li a:hover {
     padding-bottom: 10px;
     text-align: left;
 }
+
 .contentBox1 {
     padding: 1px;
 }
 
 .commonList_dot li {
-    background: rgba(0, 0, 0, 0) url("../images/list_dot_10.png") no-repeat scroll left center;
     line-height: 24px;
     text-indent: 10px;
+}
+
+/*师资队伍*/
+
+.teach-link-container {
+    background: #6e9b62 none repeat scroll 0 0;
+    padding-bottom: 25px;
+    padding-top: 13px;
+    width: 100%;
+}
+
+.profile-list-box {
+    float: left;
+    padding-left: 10px;
+    width: 30%;
+}
+
+.profile-list-top {
+    padding: 10px 0;
+}
+
+.title-one {
+    border-left: 2px solid #407432;
+    color: #fff;
+    font-family: "黑体";
+    font-size: 16px;
+    padding: 0 6px;
+}
+
+.moveContainer {
+    height: 200px;
+    overflow: hidden;
+}
+
+.moveContainer {
+    height: 200px;
+    overflow: hidden;
+}
+
+.moveContainer {
+    height: 200px;
+    overflow: hidden;
+}
+
+.profile-list-left {
+    float: left;
+    position: relative;
+}
+
+.profile-list-left {
+    float: left;
+    position: relative;
+}
+
+.profile-list-left .button {
+    background: rgba(0, 0, 0, 0) url("../images/arrow_07.png") no-repeat scroll 0 -38px;
+    bottom: 0;
+    cursor: pointer;
+    display: inline-block;
+    height: 37px;
+    position: absolute;
+    right: 0;
+    width: 37px;
+}
+
+.profile-list-right {
+    float: left;
+    padding-left: 20px;
+    width: 180px;
+}
+
+.profile-list-right .name {
+    color: #fff;
+    font-family: "微软雅黑";
+    font-size: 16px;
+    line-height: 28px;
+}
+.copyBackground a, p {
+    color: #fff;
+    line-height: 28px;
+}
+
+.profile-list-right .duty {
+    color: #fff;
+    font-family: "微软雅黑";
+    font-size: 14px;
+    line-height: 28px;
+}
+
+.profile-list-right .profile {
+    color: #fff;
+    font-family: "微软雅黑";
+    font-size: 12px;
+    line-height: 24px;
 }
