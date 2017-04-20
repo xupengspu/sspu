@@ -1,6 +1,12 @@
 <extend name="./common/admin_template"/>
+
 <block name="content">
-    <div class="">
+    <style>
+        th {
+            text-align: center;
+        }
+    </style>
+    <div>
 
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
@@ -14,10 +20,12 @@
                         <form id="demo-form2" class="form-horizontal form-label-left" novalidate="">
 
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">菜单名称 <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">菜单名称 <span
+                                        class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="first-name" required="required" class="form-control col-md-7 col-xs-12" type="text">
+                                    <input id="first-name" required="required" class="form-control col-md-7 col-xs-12"
+                                           type="text">
                                 </div>
                             </div>
 
@@ -39,6 +47,9 @@
                 <div class="x_panel">
                     <div class="x_title">
                         <h2>菜单列表</h2>
+                        <span style="float: right">
+                            <a id="btn_add_menu" class="btn btn-primary" href="#">添加一级菜单</a>
+                        </span>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
@@ -46,24 +57,33 @@
                         <table class="table table-bordered">
                             <thead>
                             <tr>
-                                <th>菜单名称</th>
+                                <th rowspan="2" style="vertical-align: middle">菜单名称</th>
                                 <th>菜单层级</th>
                                 <th>操作</th>
+                            </tr>
+                            <tr>
+                                <th>子菜单名称</th>
+                                <th colspan="2">菜单层级</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <td><i class="fa fa-plus"></i>首页</td>
+                                <td>[ - ]首页</td>
                                 <td>一级菜单</td>
-                                <td> <i class="fa fa-pencil operator"></i> <i class="fa fa-trash operator"></i> </td>
+                                <td><i class="fa fa-pencil operator"></i> <i class="fa fa-trash operator"></i></td>
+                            </tr>
+                            <tr class="sub-datagrid">
+                                <td></td>
+                                <td>新闻</td>
+                                <td colspan="2">一级菜单</td>
                             </tr>
                             <tr>
-                                <td><i class="fa fa-plus"></i>新闻动态</td>
+                                <td>[ + ]新闻动态</td>
                                 <td>一级菜单</td>
                                 <td><i class="fa fa-pencil operator"></i> <i class="fa fa-trash operator"></i></td>
                             </tr>
                             <tr>
-                                <td><i class="fa fa-plus"></i>中心介绍</td>
+                                <td>[ + ]中心介绍</td>
                                 <td>一级菜单</td>
                                 <td><i class="fa fa-pencil operator"></i> <i class="fa fa-trash operator"></i></td>
                             </tr>
@@ -76,4 +96,10 @@
         </div>
 
     </div>
+</block>
+
+<block name="script">
+
+    <script src="/Application/Admin/Public/script/menulist.js?v=2"></script>
+
 </block>

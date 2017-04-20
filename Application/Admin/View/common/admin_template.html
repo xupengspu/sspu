@@ -21,10 +21,45 @@
     <!-- Custom Theme Style -->
     <link href="/Application/Admin/Public/css/custom.min.css" rel="stylesheet">
     <style>
-        i {margin: 5px;}
-        .operator{font-size: 18px; cursor: pointer;}
-        .fa-pencil{color: #00aeef !important;}
-        .fa-trash{color: #d43f3a !important;}
+        i {
+            margin: 5px;
+        }
+
+        .operator {
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .fa-pencil {
+            color: #00aeef !important;
+        }
+
+        .fa-trash {
+            color: #d43f3a !important;
+        }
+
+        .fa-plus {
+            cursor: pointer;
+        }
+
+        table thead {
+            background: #efefef;
+            border-bottom: 1px solid #CDCDCD;
+            height: 36px;
+            font-size: 12px;
+        }
+
+        .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
+            border-bottom-width: 1px;
+        }
+
+
+        .sub-datagrid td {
+            background-color: #e9f5e9 !important;
+            color: #9b5c88;
+            font-family: "Open Sans", "Comic Sans MS";
+            font-size: 12px;
+        }
     </style>
 </head>
 
@@ -202,8 +237,11 @@
 <script src="/Application/Admin/Public/script/select2.min.js"></script>
 <!-- Switchery -->
 <script src="/Application/Admin/Public/script/switchery.min.js"></script>
+<script src="/Application/Admin/Public/layer/layer.js"></script>
 
 <!-- Custom Theme Scripts -->
 <script src="/Application/Admin/Public/script/custom.min.js"></script>
+
+<block name="script"></block>
 </body>
 </html>
