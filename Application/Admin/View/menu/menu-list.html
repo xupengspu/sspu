@@ -5,6 +5,20 @@
         th {
             text-align: center;
         }
+
+        .slider {
+            cursor: pointer;
+        }
+
+        .s-open:after {
+
+            content: '[ + ]';
+        }
+
+        .s-close:after {
+
+            content: '[ - ]';
+        }
     </style>
     <div>
 
@@ -32,7 +46,7 @@
                             <!--<div class="ln_solid"></div>-->
                             <div class="form-group">
                                 <div style="float: right;">
-                                    <button class="btn btn-primary" type="button">查询</button>
+                                    <a id="search-btn" class="btn btn-primary" href="#">查询</a>
                                 </div>
                             </div>
 
@@ -66,27 +80,25 @@
                                 <th colspan="2">菜单层级</th>
                             </tr>
                             </thead>
+
+
                             <tbody>
-                            <tr>
-                                <td>[ - ]首页</td>
-                                <td>一级菜单</td>
-                                <td><i class="fa fa-pencil operator"></i> <i class="fa fa-trash operator"></i></td>
-                            </tr>
-                            <tr class="sub-datagrid">
-                                <td></td>
-                                <td>新闻</td>
-                                <td colspan="2">一级菜单</td>
-                            </tr>
-                            <tr>
-                                <td>[ + ]新闻动态</td>
-                                <td>一级菜单</td>
-                                <td><i class="fa fa-pencil operator"></i> <i class="fa fa-trash operator"></i></td>
-                            </tr>
-                            <tr>
-                                <td>[ + ]中心介绍</td>
-                                <td>一级菜单</td>
-                                <td><i class="fa fa-pencil operator"></i> <i class="fa fa-trash operator"></i></td>
-                            </tr>
+                                <tr>
+                                    <td><span class="slider s-close"></span>首页</td>
+                                    <td>一级菜单</td>
+                                    <td><i class="fa fa-pencil operator"></i> <i class="fa fa-trash operator"></i></td>
+                                </tr>
+                                <tr class="sub-datagrid s998">
+                                    <td></td>
+                                    <td>新闻</td>
+                                    <td colspan="2">一级菜单</td>
+                                </tr>
+                                <tr class="sub-datagrid s998">
+                                    <td></td>
+                                    <td>新闻</td>
+                                    <td colspan="2">一级菜单</td>
+                                </tr>
+
                             </tbody>
                         </table>
 
