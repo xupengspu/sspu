@@ -47,6 +47,15 @@ class MenuController extends BaseController
     public function search()
     {
         $result = MenuBiz::search(I('menu_name'));
-        $this->ajaxSuccess('' , $result);
+        $this->ajaxSuccess('', $result);
+    }
+
+    /**
+     * 查询菜单
+     */
+    public function delete()
+    {
+        MenuBiz::delete(I('id'));
+        $this->ajaxSuccess('');
     }
 }

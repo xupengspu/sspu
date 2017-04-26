@@ -38,15 +38,26 @@ class MenuBiz extends BaseBiz
      */
     public static function search($menu_name)
     {
-        $main_menus = M('menu')->where('level = 0')->find();
+        $main_menus = M('menu')->where('level = 0')->select();
+
 
         foreach ($main_menus as &$main_menu) {
             $parent_id = $main_menu['id'];
-            $sub_menus = M('menu')->where("parent_id = '$parent_id''")->find();
+            $sub_menus = M('menu')->where("parent_id = '$parent_id'")->select();
             $main_menu['children'] = $sub_menus;
         }
-
         return $main_menus;
     }
+
+    /**
+     * 删除
+     * @param $id
+     */
+    public static function delete($id)
+    {
+        M('menu')->where("'id='$id' or parent_id='$id'")->delete();
+
+    }
+
 
 }
