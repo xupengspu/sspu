@@ -1,0 +1,67 @@
+<extend name="./common/admin_template"/>
+
+<block name="content">
+    <div class="row">
+        <div class="form-group">
+            <label class="control-label col-md-1 col-sm-1 col-xs-12" for="title" style="text-align: right;">文章类型 <span
+                    class="required">*</span>
+            </label>
+            <div class="col-md-8 col-sm-8 col-xs-12">
+
+                <select id="type" required="required" class="form-control col-md-7 col-xs-12 select2_single form-control">
+
+                    <option value="0" selected>新闻动态</option>
+                    <option value="1">菜单文章</option>
+                </select>
+            </div>
+        </div>
+        <div class="clearfix" style="margin: 5px;"></div>
+        <div class="form-group">
+            <label class="control-label col-md-1 col-sm-1 col-xs-12" for="title" style="text-align: right;">文章标题 <span
+                    class="required">*</span>
+            </label>
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <input type="hidden" id="id" value="{$id}">
+
+                <input type="text" id="title" required="required" class="form-control col-md-7 col-xs-12">
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 50px;">
+        <script id="container" name="content" type="text/plain"></script>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12" style="text-align: center;">
+
+        <a id="save-btn" href="#" class="btn btn-success " style="margin-top: 30px;width: 150px;">保存</a>
+    </div>
+</block>
+
+<block name="script">
+
+
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="/Application/Admin/Public/utf8-php/ueditor.config.js?v=192"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="/Application/Admin/Public/utf8-php/ueditor.all.min.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        window.UEDITOR_HOME_URL = '__PUBLIC__/utf8-php/';
+        window.onload = function () {
+            //自定义请求地址
+            UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
+            UE.Editor.prototype.getActionUrl = function (action) {
+                if (action == 'uploadimage') {    //上传图片
+                    return "{:U('admin/block/upload',array('action'=>'uploadimage'),'')}";
+                } else if (action == 'config') {    //加载配置
+                    return this._bkGetActionUrl.call(this, action);
+                }
+            }
+            //自定义请求地址结束
+            window.ue = UE.getEditor('container');
+        }
+
+    </script>
+    <script src="/Application/Admin/Public/script/blog.js?v=813"></script>
+
+</block>

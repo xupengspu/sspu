@@ -55,8 +55,20 @@ class MenuBiz extends BaseBiz
      */
     public static function delete($id)
     {
-        M('menu')->where("'id='$id' or parent_id='$id'")->delete();
+        M('menu')->where("id='$id' or parent_id='$id'")->delete();
 
+    }
+
+    /**
+     * 更新菜单
+     * @param $menu_name
+     * @param $id
+     */
+    public static function update($menu_name, $id)
+    {
+        $menu = M('menu')->where("id='$id'")->find();
+        $menu['menu_name'] = $menu_name;
+        M('menu')->where("id='$id'")->save($menu);
     }
 
 

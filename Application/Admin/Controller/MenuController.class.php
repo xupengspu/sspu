@@ -27,9 +27,25 @@ class MenuController extends BaseController
      */
     public function addMenu()
     {
+        $id = I('id');
+        $menu = M('menu')->where("id='$id'")->find();
+        $this->assign('parent' , $menu);
+
         $this->display("/menu/addMenu");
     }
 
+    /**
+     * 更新菜单
+     */
+    public function editMenu()
+    {
+        $id = I('id');
+        $menu = M('menu')->where("id='$id'")->find();
+        $this->assign('menu_name' , $menu['menu_name']);
+        $this->assign('id' , $menu['id']);
+
+        $this->display("/menu/editMenu");
+    }
     /**
      * 保存菜单
      */
@@ -40,6 +56,18 @@ class MenuController extends BaseController
         MenuBiz::save($menu_name, $parent_id);
         $this->ajaxSuccess();
     }
+
+    /**
+     * 更新菜单
+     */
+    public function updateMenu()
+    {
+        $menu_name = I('menu_name');
+        $id = I('id');
+        MenuBiz::update($menu_name, $id);
+        $this->ajaxSuccess();
+    }
+
 
     /**
      * 查询菜单

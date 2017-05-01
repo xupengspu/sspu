@@ -22,7 +22,7 @@
     </style>
     <div>
 
-        <div class="row">
+        <!--<div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
@@ -43,7 +43,7 @@
                                 </div>
                             </div>
 
-                            <!--<div class="ln_solid"></div>-->
+                            &lt;!&ndash;<div class="ln_solid"></div>&ndash;&gt;
                             <div class="form-group">
                                 <div style="float: right;">
                                     <a id="search-btn" class="btn btn-primary" href="#">查询</a>
@@ -54,7 +54,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
 
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
@@ -73,31 +73,18 @@
                             <tr>
                                 <th rowspan="2" style="vertical-align: middle">菜单名称</th>
                                 <th>菜单层级</th>
-                                <th>操作</th>
+                                <th colspan="2">操作</th>
                             </tr>
                             <tr>
                                 <th>子菜单名称</th>
-                                <th colspan="2">菜单层级</th>
+                                <th>菜单层级</th>
+                                <th>操作</th>
                             </tr>
                             </thead>
 
 
                             <tbody id="result-body">
-                                <tr>
-                                    <td><span class="slider s-close"></span>首页</td>
-                                    <td>一级菜单</td>
-                                    <td><i class="fa fa-pencil operator"></i> <i class="fa fa-trash operator"></i></td>
-                                </tr>
-                                <tr class="sub-datagrid s998">
-                                    <td></td>
-                                    <td>新闻</td>
-                                    <td colspan="2">一级菜单</td>
-                                </tr>
-                                <tr class="sub-datagrid s998">
-                                    <td></td>
-                                    <td>新闻</td>
-                                    <td colspan="2">一级菜单</td>
-                                </tr>
+
                             </tbody>
                         </table>
 
@@ -111,6 +98,6 @@
 
 <block name="script">
 
-    <script src="/Application/Admin/Public/script/menulist.js?v=69"></script>
+    <script src="/Application/Admin/Public/script/menulist.js?v=890"></script>
 
 </block>
