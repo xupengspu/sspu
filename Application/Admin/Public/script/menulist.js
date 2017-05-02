@@ -127,6 +127,7 @@
 
                 '<i class="fa fa-pencil operator" data-id=' + row['id'] + '"></i>' +
                 '<i class="fa fa-trash operator" data-id="' + row['id'] + '"></i>' +
+                '<a target="_blank" href="/admin/menu/menucontent?id='+row['id']+'"><i class="fa fa-file operator"></i></a>' +
                 '<i class="fa fa-plus operator" data-id="' + row['id'] + '">' +
                 '</td></tr>';
 
@@ -134,7 +135,11 @@
                 var sub = row['children'][j];
                 html = html + '<tr class="sub-datagrid" parent_id="' + row['id'] + '"><td></td><td>' + sub['menu_name'] + '</td>' +
                     '<td>' + menulist.formatLevel(sub['level']) + '</td>' +
-                    '<td><i class="fa fa-pencil operator" data-id=' + sub['id'] + '"></i> <i class="fa fa-trash operator" data-id="' + sub['id'] + '"></i></td>' +
+                    '<td>' +
+                    '<i class="fa fa-pencil operator" data-id=' + sub['id'] + '"></i>' +
+                    '<i class="fa fa-trash operator" data-id="' + sub['id'] + '"></i>' +
+                    '<a target="_blank" href="/admin/menu/menucontent?id='+sub['id']+'"><i class="fa fa-file operator"></i></a>' +
+                    '</td>' +
                     '</tr>';
             }
         }

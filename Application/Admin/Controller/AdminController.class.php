@@ -25,7 +25,7 @@ class AdminController extends BaseController
     /**
      * 登录
      */
-    public function dologin ()
+    public function dologin()
     {
         //用户登陆
         $user_id = I('user_id');
@@ -33,13 +33,37 @@ class AdminController extends BaseController
 
         $error_msg = AdminBiz::login($user_id, $password);
 
-        if(empty($error_msg)){
+        if (empty($error_msg)) {
             $this->ajaxSuccess();
-        }
-        else{
+        } else {
             $this->ajaxFail($error_msg);
         }
         return;
+
+    }
+
+    /**
+     *
+     */
+    public function edit()
+    {
+        $user_name = cookie('login_user_id');
+        $user = M("user")->where("user_name ='$user_name'")->find();
+        $this->assign('user',$user);
+        $this->display('/user/update_user');
+    }
+
+    public function update()
+    {
+        $password = I("password");
+        $encrypt_password = md5('rlQu78NZpd2OwhQG' . $password);
+        $user_name = cookie('login_user_id');
+        $user = M("user")->where("user_name ='$user_name'")->find();
+        $user['password'] = $encrypt_password;
+        $id = $user['id'];
+
+        M("user")->where("id='$id'")->save($user);
+        $this->ajaxSuccess();
 
     }
 }

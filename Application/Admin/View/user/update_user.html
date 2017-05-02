@@ -1,0 +1,87 @@
+<extend name="./common/admin_template"/>
+
+<block name="content">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>更改个人信息</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">用户名 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+
+                            <input type="text" id="first-name" required="required" value="{$user.user_name}" class="form-control col-md-7 col-xs-12" readonly>
+                        </div>
+                    </div>
+                    <div class="clearfix" style="margin: 20px;"></div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">新密码 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" required="required" id="password" class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="clearfix" style="margin: 20px;"></div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">重新输入密码 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" required="required" id="retry" class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="container" class="col-md-12 col-sm-12 col-xs-12" style="text-align: center;">
+
+        <a id="save-btn" class="btn btn-success" href="javascript:;" style="margin-top: 30px;width: 150px;">保存</a>
+    </div>
+
+
+</block>
+
+<block name="script">
+    <script>
+        (function (main) {
+            var user = {};
+
+            user.bindEvent = function () {
+                $("#save-btn").click(function () {
+
+                    var password = $("#password").val();
+                    var retry = $("#retry").val();
+
+                    if(password != retry){
+                        layer.alert("两次输入的密码不一致,请检查！");
+                        return;
+                    }
+                    $.ajax({
+                        url: '/admin/admin/update',
+                        type: 'post',
+                        dataType: 'json',
+                        data: {'password': password},
+                        success: function (resp) {
+                            if (resp.code == 0) {
+                                layer.alert("信息变更成功!");
+                            }
+                        }
+                    });
+                });
+
+            }
+            user.bindEvent();
+        })(window);
+
+    </script>
+
+</block>

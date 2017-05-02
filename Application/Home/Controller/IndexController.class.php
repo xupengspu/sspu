@@ -1,5 +1,8 @@
 <?php
+
 namespace Home\Controller;
+
+use Admin\Biz\MenuBiz;
 use Think\Controller;
 
 /**
@@ -7,26 +10,24 @@ use Think\Controller;
  * Class IndexController
  * @package Home\Controller
  */
-class IndexController extends Controller {
+class IndexController extends Controller
+{
 
     /**
      * 跳转至首页
      */
-    public function index(){
+    public function index()
+    {
+        $menus = MenuBiz::search(I('menu_name'));
+        $this->assign('menus', $menus);
+
+        //
+        $banner = M("banner")->find();
+        $this->assign('banner', $banner['path']);
+
+
         $this->display('/index');
     }
 
-    /**
-     * 跳转至首页
-     */
-    public function content(){
-        $this->display('/contet');
-    }
 
-    /**
-     * 跳转至首页
-     */
-    public function lists(){
-        $this->display('/contet-list');
-    }
 }

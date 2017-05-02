@@ -71,5 +71,18 @@ class MenuBiz extends BaseBiz
         M('menu')->where("id='$id'")->save($menu);
     }
 
+    public static function addcontent($menu_id, $article_ids)
+    {
+        foreach ($article_ids as $article_id) {
+
+            $menu_article = array(
+                'id' => self::getUUID(),
+                'menu_id' => $menu_id,
+                'article_id' => $article_id
+            );
+            M('menu_article')->add($menu_article);
+        }
+    }
+
 
 }

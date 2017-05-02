@@ -6,7 +6,7 @@
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width"/>
     <link rel="stylesheet" href="/Public/css/reset.css?b=119"/>
-    <link rel="stylesheet" href="/Application/Home/Public/css/index.css?a=990"/>
+    <link rel="stylesheet" href="/Application/Home/Public/css/index.css?a=9980"/>
     <link rel="shortcut icon" href="img/favicon.ico"/>
     <title>SSRCET-首页</title>
 </head>
@@ -14,7 +14,7 @@
 <!--顶部小横条 -- start -->
 <div class="outerBox top-background">
     <div class="mainBox ">
-        <a href="/" class="active">[管理员登录入口]</a>
+        <a href="/admin/admin/login" target="_blank" class="active">[管理员登录入口]</a>
         <div class="clearfix"></div>
     </div>
 </div>
@@ -46,33 +46,23 @@
             </div>
 
         </div>
+        <div class="clearfix"></div>
         <div class="nav_box">
             <ul class="dropdown">
-                <li class="drop" style="height: 30px;"><a href="/" class="">首页</a>
-                </li>
-                <li class="drop" style="height: 30px;"><a href="/zxgc/zxjg/31592.htm" class="">中心介绍</a>
-                    <ul class="sub_menu" style="display: none; padding-top: 30px; top: 0px;">
-                        <li><a href="/zxgc/zxjg/31592.htm" class="">中心简介</a></li>
-                        <li><a href="/zxgc/qzjg/31908.htm" class="">组织机构</a></li>
-                        <li><a href="/zxgc/zxzc/31595.htm" class="">中心章程</a></li>
-                        <li><a href="/info/iList.jsp?cat_id=11911" class="">专家介绍</a></li>
-                        <li><a href="/info/iList.jsp?cat_id=11644" class="">研究团队</a></li>
-                        <li><a href="/info/iList.jsp?cat_id=11645" class="">研发平台</a></li>
-                        <li><a href="/info/iList.jsp?cat_id=11646" class="">职能部门</a></li>
-                    </ul>
-                </li>
-                <li class="drop" style="height: 30px;"><a href="/info/iIndex.jsp?cat_id=11633" class="">新闻动态</a>
-                    <ul class="sub_menu" style="display: none; padding-top: 30px; top: 0px;">
-                        <li><a href="/info/iList.jsp?cat_id=11647" class="">中心新闻</a></li>
-                        <li><a href="/info/iList.jsp?cat_id=11648" class="">中心简讯</a></li>
-                        <li><a href="/info/iList.jsp?cat_id=11649" class="">通知公告</a></li>
-                    </ul>
-                </li>
-                <li style="height: 30px;"><a href="/info/iIndex.jsp?cat_id=11634" class="">科学研究</a></li>
-                <li style="height: 30px;"><a href="/gzfl/27524.htm" class="">合作范例</a></li>
-                <li style="height: 30px;"><a href="/info/iIndex.jsp?cat_id=11636" class="">成果展示</a></li>
-                <li style="height: 30px;"><a href="/rcpy/31662.htm" class="">人才培养</a></li>
-                <li style="height: 30px;"><a href="/ljwm/31661.htm" class="">联系我们</a></li>
+                <li class="drop" style="height: 30px;"><a href="/index/index" class="">首页</a></li>
+                <volist name="menus" id="menu">
+
+                    <li class="drop" style="height: 30px;"><a href="/page/content?sid={$menu.id}" class="">{$menu.menu_name}</a>
+
+                        <ul class="sub_menu" style="display: none; padding-top: 30px; top: 0px;">
+                            <volist name="menu['children']" id="sub">
+                                <li><a href="/page/content?sid={$sub.id}" class="">{$sub.menu_name}</a></li>
+                            </volist>
+                        </ul>
+                    </li>
+                </volist>
+
+
             </ul>
         </div>
         <div class="clearfix"></div>
@@ -82,7 +72,8 @@
 
 <!--banner 图片 -- 开始 -->
 <div class="outerBox bigtubg">
-    <div class="mainBox" style="position: relative;height: 370px">
+    <div class="mainBox" style="position: relative;height: 370px;width: 100%;">
+        <img src="{$banner}" style="width: 100%;height: 370px;">
     </div>
 </div>
 <!--banner 图片 -- 结束 -->
@@ -92,7 +83,7 @@
 
         <div class="index-link-box" style="border-left: 1px solid #ccc;">
             <a href="/zxgc/xjqd/27487.htm" target="_blank" class="index-link-item">
-                <span class="index-list-dot list-dot-1"></span>
+                <span class="index-list-dot list-dot-1"><img src="/Public/images/fwzc.png"></span>
                 <span class="index-list-name">政策法规研究所 &gt; </span>
             </a>
         </div>
@@ -100,7 +91,7 @@
 
         <div class="index-link-box">
             <a href="/zxgc/xjqd/27488.htm" target="_blank" class="index-link-item">
-                <span class="index-list-dot list-dot-2"></span>
+                <span class="index-list-dot list-dot-2"><img src="/Public/images/smzq.png"></span>
                 <span class="index-list-name">生命周期管理研究所 &gt; </span>
             </a>
         </div>
@@ -108,7 +99,7 @@
 
         <div class="index-link-box">
             <a href="/zxgc/xjqd/27489.htm" target="_blank" class="index-link-item">
-                <span class="index-list-dot list-dot-3"></span>
+                <span class="index-list-dot list-dot-3"><img src="/Public/images/zy.png"></span>
                 <span class="index-list-name">资源化技术研究所 &gt; </span>
             </a>
         </div>
@@ -116,7 +107,7 @@
 
         <div class="index-link-box">
             <a href="/zxgc/xjqd/27490.htm" target="_blank" class="index-link-item">
-                <span class="index-list-dot list-dot-4"></span>
+                <span class="index-list-dot list-dot-4"><img src="/Public/images/gy.png"></span>
                 <span class="index-list-name">工艺装备研究所 &gt; </span>
             </a>
         </div>
@@ -124,7 +115,7 @@
 
         <div class="index-link-box">
             <a href="/zxgc/xjqd/27491.htm" target="_blank" class="index-link-item">
-                <span class="index-list-dot list-dot-5"></span>
+                <span class="index-list-dot list-dot-5"><img src="/Public/images/sj.png"></span>
                 <span class="index-list-name">绿色设计与再制造研究所 &gt; </span>
             </a>
         </div>

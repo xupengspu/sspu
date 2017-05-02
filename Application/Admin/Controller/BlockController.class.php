@@ -112,6 +112,14 @@ class BlockController extends BaseController
     }
 
     /**
+     *
+     */
+    public function blockselect()
+    {
+        $this->assign('menu_id' , I('menu_id'));
+        $this->display('/block/block-selector');
+    }
+    /**
      * 删除
      */
     public function remove()
