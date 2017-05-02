@@ -45,6 +45,19 @@
 
             });
         });
+
+        //推荐按钮事件
+        $(".btn-recommend").click(function () {
+            var _this = $(this);
+            layer.open({
+                type: 2,
+                area: ['400px', '400px'],
+                fixed: true, //不固定
+                maxmin: false,
+                title: '上传封面图片',
+                content: '/admin/block/recommend?id=' + _this.attr('data-id')
+            });
+        });
     }
     /**
      * 搜索
@@ -64,6 +77,17 @@
         });
     };
 
+
+    blocklist.format_type = function (type) {
+        if (type == "0") {
+            return "新闻动态";
+        } else if (type == "1") {
+            return "菜单";
+        } else if (type == "2") {
+            return "合作范例";
+        }
+    }
+
     /**
      *
      * @param result
@@ -76,12 +100,16 @@
             tbody += '<tr>';
             tbody += "<td>" + row['title'] + "</td>";
             tbody += "<td class='content'>" + row['content'] + "</td>";
+            tbody += "<td>" + blocklist.format_type(row['type']) + "</td>";
             tbody += "<td>" + row['create_time'] + "</td>";
             tbody += "<td>" + row['update_time'] + "</td>";
-            tbody += "<td>" +
+            tbody += "<td  style='text-align:center;'>" +
                 "<a href='/admin/block/editblock?id=" + row['id'] + "' style='color: #00aeef'>[查看详情]</a>" +
-                "<a href='#' class='remove-btn' style='color: #d43f3a' data-id='" + row['id'] + "'>[删除]</a>" +
-                "</td>";
+                "<a href='#' class='remove-btn' style='color: #d43f3a' data-id='" + row['id'] + "'>[删除]</a>";
+            if (row['type'] == "0") {
+                tbody += "<a class='btn-recommend' data-id='" + row['id'] + "' href='#' style='color: #245269'>[设置轮播]</a>"
+            }
+            tbody += "</td></tr>";
         }
         $('#result-body').empty().append(tbody);
         blocklist.dynamicBind();
@@ -90,6 +118,6 @@
     main.blocklist = blocklist;
 
     blocklist.addListener();
-
+    blocklist.search();
 
 })(window);

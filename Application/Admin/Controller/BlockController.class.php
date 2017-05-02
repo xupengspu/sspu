@@ -129,10 +129,62 @@ class BlockController extends BaseController
         $this->display('/block/blog');
     }
 
+    /**
+     * 加载
+     */
     public function loadblock()
     {
         $id = I('id');
-        $result = M('news')->where("id='$id'")->find();
-        $this->ajaxSuccess('',$result);
+        $result = M('article')->where("id='$id'")->find();
+        $this->ajaxSuccess('', $result);
+    }
+
+    /**
+     * 推荐
+     */
+    public function recommend()
+    {
+        $this->assign('id', I('id'));
+        $this->display('/block/upload_cover');
+    }
+
+    /**
+     * 加载数据
+     */
+    public function load()
+    {
+        $id = I('id');
+        $article = M('article')->where("id = '$id'")->find();
+        $this->ajaxSuccess('', $article['coverage']);
+    }
+
+    /**
+     * 上传图片
+     */
+    public function uploadcover()
+    {
+
+        $upload = new \Think\Upload();// 实例化上传类
+        $upload->maxSize = 3145728;// 设置附件上传大小
+        $upload->exts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+        $upload->rootPath = './Uploads/'; // 设置附件上传根目录
+        $upload->savePath = ''; // 设置附件上传（子）目录
+        // 上传文件
+        $info = $upload->upload();
+
+        if (!$info) {// 上传错误提示错误信息
+            $this->error($upload->getError());
+        } else {// 上传成功
+
+            $this->ajaxSuccess('', '/Uploads/' . $info['file']['savepath'] . $info['file']['savename']);
+        }
+    }
+
+    public function savepath()
+    {
+        $id = I('id');
+        $path = I('path');
+        BlogBiz::saveCover($id, $path);
+        $this->ajaxSuccess();
     }
 }

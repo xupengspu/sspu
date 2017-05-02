@@ -1,0 +1,87 @@
+<extend name="./common/simple_template"/>
+
+<block name="content">
+    <style>
+        #image-container img {
+            width: 250px;
+            height: 250px;
+        }
+    </style>
+    <input type="hidden" id="id" value="{$id}">
+    <div id="image-container" style="width: 250px;height: 250px; margin: 0 auto;">
+
+    </div>
+
+    <div id="container" class="col-md-12 col-sm-12 col-xs-12" style="text-align: center;">
+        <a id="pickfiles" class="btn btn-success" href="javascript:;" style="margin-top: 30px;width: 150px;">上传</a>
+    </div>
+
+
+</block>
+
+<block name="script">
+    <script type="text/javascript" src="/Application/Admin/Public/script/plupload/plupload.full.min.js"></script>
+
+    <script type="text/javascript">
+        // Custom example logic
+
+        //初始化上传控件
+        var uploader = new plupload.Uploader({
+            browse_button: 'pickfiles', 					//触发文件选择对话框的按钮，为那个元素id
+            url: '/admin/block/uploadcover',    //服务器端的上传页面地址
+            filters: {
+                mime_types: [{
+                    title: "Image files",
+                    extensions: "jpg,gif,jpeg,png" 			//只允许上传图片和zip文件
+                }],
+                max_file_size: '2048kb' 					//最大只能上传400kb的文件
+            },
+            flash_swf_url: 'js/Moxie.swf', 				//swf文件，当需要使用swf方式进行上传时需要配置该参数
+            silverlight_xap_url: 'js/Moxie.xap' 			//silverlight文件，当需要使用silverlight方式进行上传时需要配置该参数
+        });
+
+        //上传组件初始化
+        uploader.init();
+
+
+        //上传组件选择后直接上传
+        uploader.bind('FilesAdded', function (uploader, files) {
+            uploader.start();
+        });
+
+        //上传完成后触发事件
+        uploader.bind("FileUploaded", function (up, file, result) {
+            var re = JSON.parse(result.response);
+            $("#image-container").empty();
+            $("#image-container").append("<img src='" + re.data + "'>");
+
+            $.ajax({
+                url: '/admin/block/savepath',
+                type: 'post',
+                dataType: 'json',
+                data: {'id': $("#id").val(), 'path': re.data},
+                success: function (resp) {
+                }
+            });
+        });
+
+        //报错信息输出
+        uploader.bind('Error', function (uploader, errObject) {
+            layer.alert(errObject.message, '图片大小超出了2M或其他错误');
+        });
+
+        var init = function () {
+            $.ajax({
+                url: '/admin/block/load',
+                type: 'post',
+                dataType: 'json',
+                data: {id: $("#id").val()},
+                success: function (resp) {
+                    $("#image-container").append("<img src='" + resp.data + "'>")
+                }
+            });
+        }
+
+        init();
+    </script>
+</block>

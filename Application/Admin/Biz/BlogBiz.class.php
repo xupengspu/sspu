@@ -19,22 +19,22 @@ class BlogBiz extends BaseBiz
             $news = array(
                 'id' => self::getUUID(),
                 'title' => I('title'),
-                'type'=>I('type'),
+                'type' => I('type'),
                 'content' => urldecode(I('content')),
                 'create_time' => date("Y-m-d H:i:s", time()),
                 'update_time' => date("Y-m-d H:i:s", time())
 
             );
-            M('news')->add($news);
+            M('article')->add($news);
         } else {
             $news = array(
                 'title' => I('title'),
-                'type'=>I('type'),
+                'type' => I('type'),
                 'content' => urldecode(I('content')),
                 'update_time' => date("Y-m-d H:i:s", time())
 
             );
-            M('news')->where("id='$id'")->save($news);
+            M('article')->where("id='$id'")->save($news);
         }
 
     }
@@ -47,9 +47,9 @@ class BlogBiz extends BaseBiz
         $title = I('title');
         $condition = array();
         if (!empty($title)) {
-            $condition['title'] = array('like' , "%$title%");
+            $condition['title'] = array('like', "%$title%");
         }
-        $result = M('news')->where($condition)->select();
+        $result = M('article')->where($condition)->select();
         return $result;
     }
 
@@ -59,7 +59,19 @@ class BlogBiz extends BaseBiz
     public static function removeRow()
     {
         $id = I('id');
-        M('news')->where("id='$id'")->delete();
+        M('article')->where("id='$id'")->delete();
+    }
+
+    /**
+     * @param $coverpath
+     */
+    public static function saveCover($id, $coverpath)
+    {
+        $article = M('article')->where("id = '$id'")->find();
+        $article['coverage'] = $coverpath;
+        $article['recommend'] = 1;
+
+        M('article')->where("id = '$id'")->save($article);
     }
 
 

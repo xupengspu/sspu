@@ -14,6 +14,21 @@ use Think\Controller;
 class BaseController extends Controller
 {
 
+    function _initialize()
+    {
+        //验证当前用户是否登陆
+        $user_id = cookie('login_user_id');
+        if (empty($user_id)) {
+
+            if($_SERVER['REQUEST_URI'] != '/admin/admin/login' && $_SERVER['REQUEST_URI'] != '/admin/admin/dologin' ){
+                //未登录
+                redirect('/admin/admin/login');
+                return;
+            }
+
+        }
+    }
+
     /**
      * 成功返回
      * @param $msg
