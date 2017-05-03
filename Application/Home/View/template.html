@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/Public/css/reset.css?b=119"/>
     <link rel="stylesheet" href="/Application/Home/Public/css/index.css?a=990"/>
     <link rel="stylesheet" href="/Application/Home/Public/css/template.css?a=990"/>
+    <link rel="stylesheet" href="/Application/Home/Public/css/slider.css"/>
     <link rel="shortcut icon" href="img/favicon.ico"/>
     <block name="title"><title>标题</title></block>
 </head>
@@ -28,21 +29,6 @@
         <span class="logo-content" style="color:#000">上海曙光环境治理新技术研究中心</span>
         <div class="nav_right" style="float: right">
             <div class="seacrhBox">
-                <div class="search_03">
-
-
-                    <form id="searchform" name="searchform" action="/search/searchResultGJ.jsp" method="get">
-
-                        <input id="q" name="q" class="search_Text" value=""
-                               style="display: inline-block ;width:160px;height:22px;border:0px;background-color: transparent;margin-top:3px;margin-left:3px;"
-                               type="text">
-                        <input value=""
-                               style=" display : block;width:32px;background-color:transparent;border: 0px solid #000;  height:30px; cursor:pointer; float: right"
-                               type="submit">
-                        <input value="399" name="t_id" type="hidden">&#12288;
-
-                    </form>
-                </div>
                 <div class="clearfix"></div>
             </div>
 
@@ -71,7 +57,21 @@
 <!--banner 图片 -- 开始 -->
 <div class="outerBox bigtubg">
     <div class="mainBox" style="position: relative;height: 370px;width: 100%;">
-        <img src="{$banner}" style="width: 100%;height: 370px;">
+        <div class="slider-scroll" id="banner-scroll">
+            <ul>
+                <li><img src="{$banner}" alt="" width="100%" height="370"></li>
+                <li><img src="{$banner}" alt="" width="100%" height="370"></li>
+                <li><img src="{$banner}" alt="" width="100%" height="370"></li>
+                <li><img src="{$banner}" alt="" width="100%" height="370"></li>
+                <li><img src="{$banner}" alt="" width="100%" height="370"></li>
+            </ul>
+            <a href="javascript:void(0);" class="unslider-arrow04 prev">
+                <img class="arrow al" src="/Application/Home/Public/images/arrowl.png" alt="prev">
+            </a>
+            <a href="javascript:void(0);" class="unslider-arrow04 next">
+                <img class="arrow ar" src="/Application/Home/Public/images/arrowr.png" alt="next" >
+            </a>
+        </div>
     </div>
 </div>
 <!--banner 图片 -- 结束 -->
@@ -185,5 +185,7 @@
 </div>
 <script src="/Public/script/jquery.1.7.min.js"></script>
 <script src="/Application/Home/Public/script/nav.js?v=12"></script>
+<script src="/Application/Home/Public/script/unslider.min.js"></script>
+<script src="/Application/Home/Public/script/scroll-slider.js"></script>
 </body>
 </html>

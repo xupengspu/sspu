@@ -7,54 +7,22 @@
     <meta name="viewport" content="width=device-width"/>
     <link rel="stylesheet" href="/Public/css/reset.css?b=119"/>
     <link rel="stylesheet" href="/Application/Home/Public/css/index.css?a=6"/>
+    <link rel="stylesheet" href="/Application/Home/Public/css/slider.css"/>
     <link rel="shortcut icon" href="img/favicon.ico"/>
-    <script src="/Application/Home/Public/script/jquery-1.11.1.min.js"></script>
-    <script src="/Application/Home/Public/script/unslider.min.js"></script>
     <title>SSRCET-首页</title>
     <style>
-        .banner {
-            position: relative;
-            overflow: auto;
-            text-align: center;
+        .moveContainer {
+            height: 200px;
+            overflow: hidden;
         }
 
-        .banner li {
-            list-style: none;
+        .moveBox {
+            height: 200px;
+            overflow: hidden;
         }
 
-        .banner ul li {
-            float: left;
-        }
-
-        #b03 {
-            width: 450px;
-        }
-
-        #b03 .dots {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 20px;
-        }
-
-        #b03 .dots li {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin: 0 4px;
-            text-indent: -999em;
-            border: 2px solid #fff;
-            border-radius: 6px;
-            cursor: pointer;
-            opacity: .4;
-            -webkit-transition: background .5s, opacity .5s;
-            -moz-transition: background .5s, opacity .5s;
-            transition: background .5s, opacity .5s;
-        }
-
-        #b03 .dots li.active {
-            background: #fff;
-            opacity: 1;
+        .moveBoxItem {
+            height: 200px;
         }
     </style>
 </head>
@@ -75,21 +43,6 @@
         <span class="logo-content">上海曙光环境治理新技术研究中心</span>
         <div class="nav_right" style="float: right">
             <div class="seacrhBox">
-                <div class="search_03">
-
-
-                    <form id="searchform" name="searchform" action="/search/searchResultGJ.jsp" method="get">
-
-                        <input id="q" name="q" class="search_Text" value=""
-                               style="display: inline-block ;width:160px;height:22px;border:0px;background-color: transparent;margin-top:3px;margin-left:3px;"
-                               type="text">
-                        <input value=""
-                               style=" display : block;width:32px;background-color:transparent;border: 0px solid #000;  height:30px; cursor:pointer; float: right"
-                               type="submit">
-                        <input value="399" name="t_id" type="hidden">&#12288;
-
-                    </form>
-                </div>
                 <div class="clearfix"></div>
             </div>
 
@@ -121,9 +74,24 @@
 <!--banner 图片 -- 开始 -->
 <div class="outerBox bigtubg">
     <div class="mainBox" style="position: relative;height: 370px;width: 100%;">
-        <img src="{$banner}" style="width: 100%;height: 370px;">
+        <div class="slider-scroll" id="banner-scroll">
+            <ul>
+                <li><img src="{$banner}" alt="" width="100%" height="370"></li>
+                <li><img src="{$banner}" alt="" width="100%" height="370"></li>
+                <li><img src="{$banner}" alt="" width="100%" height="370"></li>
+                <li><img src="{$banner}" alt="" width="100%" height="370"></li>
+                <li><img src="{$banner}" alt="" width="100%" height="370"></li>
+            </ul>
+            <a href="javascript:void(0);" class="unslider-arrow04 prev">
+                <img class="arrow al" src="/Application/Home/Public/images/arrowl.png" alt="prev">
+            </a>
+            <a href="javascript:void(0);" class="unslider-arrow04 next">
+                <img class="arrow ar" src="/Application/Home/Public/images/arrowr.png" alt="next" >
+            </a>
+        </div>
     </div>
 </div>
+
 <!--banner 图片 -- 结束 -->
 
 <div class="outerBox index-link-container">
@@ -181,7 +149,7 @@
             <div class="focusImg_Box">
                 <div id="KinSlideshow" class="focusimg float_left" style=" width: 450px; height: 285px;">
 
-                    <div class="banner" id="b03">
+                    <div class="slider-scroll" id="news-scroll" style="width: 450px;">
                         <ul>
 
                             <li style="width: 20%;"><img src="/Application/Home/Public/images/01.jpg" alt="" width="450"
@@ -205,14 +173,7 @@
 
                 </div>
             </div>
-            <script>
-                (function () {
-                    $('#b03').unslider({
-                        dots: true
-                    });
-                })();
 
-            </script>
             <!--转场图片 结束-->
         </div>
         <div class="new-right">
@@ -247,21 +208,7 @@
     <div class="mainBox">
         <!-- ---- 中文>>--【师资队伍链接】 -- 标签开始 ---- -->
 
-        <style>
-            .moveContainer {
-                height: 200px;
-                overflow: hidden;
-            }
 
-            .moveBox {
-                height: 200px;
-                overflow: hidden;
-            }
-
-            .moveBoxItem {
-                height: 200px;
-            }
-        </style>
         <div class="profile-list-box">
             <div class="profile-list-top">
                 <a href="/info/iIndex.jsp?cat_id=11910" class="title-one">理事会</a>
@@ -1093,9 +1040,11 @@
     </div>
 </div>
 
+<script src="/Application/Home/Public/script/jquery-1.11.1.min.js"></script>
 <script src="/Application/Home/Public/script/nav.js?v=12"></script>
 <script src="/Application/Home/Public/script/tech-scroller.js?v=12"></script>
-
+<script src="/Application/Home/Public/script/unslider.min.js"></script>
+<script src="/Application/Home/Public/script/scroll-slider.js"></script>
 
 </body>
 </html>

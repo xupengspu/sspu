@@ -1,89 +1,77 @@
 <extend name="./common/admin_template"/>
 
 <block name="content">
+    <style>
+        .image-container {
+            display: block;
+            width: 100%;
+            height: 380px;
+            border: 2px #bfbfbf dashed;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .image-container .tool {
+            display: inline-block;
+            width: 128px;
+            height: 128px;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            margin-left: -64px;
+            margin-top: -64px;
+            background: url("/Public/images/add-pic.png");
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 380px;
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+        }
+    </style>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
                     <h2>首页横幅图片上传</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-expanded="false"><i class="fa fa-wrench"></i></a>
-
-                        </li>
-
-                    </ul>
+                    <span class="nav navbar-right panel_toolbox">
+                        <a id="add-banner" href="#" class="btn btn-danger">添加Banner</a>
+                    </span>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
 
-                    <form action="form_upload.html" class="dropzone dz-clickable" enctype=”multipart/form-data”>
-                        <div class="dz-default dz-message"><span id="image-container"></span></div>
-                    </form>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
+                    <span class="image-container" id="pick1">
+                        <span class="tool"></span>
+                    </span>
+
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="container" class="col-md-12 col-sm-12 col-xs-12" style="text-align: center;">
+<!--    <div id="container" class="col-md-12 col-sm-12 col-xs-12" style="text-align: center;">
 
         <a id="pickfiles" class="btn btn-success" href="javascript:;" style="margin-top: 30px;width: 150px;">重新上传</a>
-    </div>
+    </div>-->
 
 
 </block>
 
 <block name="script">
     <script type="text/javascript" src="/Application/Admin/Public/script/plupload/plupload.full.min.js"></script>
+    <script type="text/javascript" src="/Application/Admin/Public/script/banner-upload.js?v=1297"></script>
 
-    <script type="text/javascript">
+<!--    <script type="text/javascript">
         // Custom example logic
 
         //初始化上传控件
-        var uploader = new plupload.Uploader({
-            browse_button: 'pickfiles', 					//触发文件选择对话框的按钮，为那个元素id
 
-            url: '/admin/banner/upload',    //服务器端的上传页面地址
-
-            filters: {
-                mime_types: [{
-                    title: "Image files",
-                    extensions: "jpg,gif,jpeg,png" 			//只允许上传图片和zip文件
-                }],
-                max_file_size: '2048kb' 					//最大只能上传400kb的文件
-            },
-
-            flash_swf_url: 'js/Moxie.swf', 				//swf文件，当需要使用swf方式进行上传时需要配置该参数
-            silverlight_xap_url: 'js/Moxie.xap' 			//silverlight文件，当需要使用silverlight方式进行上传时需要配置该参数
-        });
-
-        //上传组件初始化
-        uploader.init();
-
-
-        //上传组件选择后直接上传
-        uploader.bind('FilesAdded', function (uploader, files) {
-            uploader.start();
-        });
-
-        //上传完成后触发事件
-        uploader.bind("FileUploaded", function (up, file, result) {
-            var re = JSON.parse(result.response);
-            $("#image-container").empty();
-            $("#image-container").append("<img src='" + re.data + "'>")
-        });
-
-        //报错信息输出
-        uploader.bind('Error', function (uploader, errObject) {
-            layer.alert(errObject.message, '图片大小超出了2M或其他错误');
-        });
 
         var init = function () {
             $.ajax({
@@ -98,5 +86,5 @@
         }
 
         init();
-    </script>
+    </script>-->
 </block>
