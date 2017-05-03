@@ -1,7 +1,13 @@
 /*公共样式*/
 .outerBox {
     margin-bottom: 10px;
-    width: 100%;
+    /*width: 1000px;*/
+}
+@media screen and (max-width: 1000px) {
+    .outerBox {
+        margin-bottom: 10px;
+        width: 1000px !important;
+    }
 }
 
 .mainBox {
@@ -13,6 +19,7 @@
 .top-background {
     background: #3e4440 none repeat scroll 0 0;
     color: #666666;
+    /*width: 1000px;*/
     line-height: 26px;
 }
 
@@ -164,7 +171,7 @@ ul.dropdown ul li a:hover {
 }
 
 .index-link-item:hover .index-list-name {
-    color: #437c5c;
+    color: #009933;
     display: block;
     font-family: "黑体";
     font-size: 13px;
@@ -222,7 +229,7 @@ ul.dropdown ul li a:hover {
 }
 
 .title-two {
-    border-top: 2px solid #407432;
+    border-top: 2px solid #009933;
     color: #2b2b2b;
     font-family: "黑体";
     font-size: 16px;
@@ -285,10 +292,10 @@ ul.dropdown ul li a:hover {
 /*师资队伍*/
 
 .teach-link-container {
-    background: #6e9b62 none repeat scroll 0 0;
+    background: #009933 none repeat scroll 0 0;
     padding-bottom: 25px;
     padding-top: 13px;
-    width: 100%;
+    /*width: 100%;*/
 }
 
 .profile-list-left .photo-img {
@@ -422,7 +429,7 @@ ul.dropdown ul li a:hover {
 }
 
 .copyBackground {
-    background: #6e9b62  none repeat scroll 0 0;
+    background: #009933  none repeat scroll 0 0;
     color: #fff;
     margin-bottom: 0;
     padding-bottom: 28px;

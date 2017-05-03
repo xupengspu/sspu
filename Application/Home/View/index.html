@@ -6,9 +6,57 @@
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width"/>
     <link rel="stylesheet" href="/Public/css/reset.css?b=119"/>
-    <link rel="stylesheet" href="/Application/Home/Public/css/index.css?a=9980"/>
+    <link rel="stylesheet" href="/Application/Home/Public/css/index.css?a=6"/>
     <link rel="shortcut icon" href="img/favicon.ico"/>
+    <script src="/Application/Home/Public/script/jquery-1.11.1.min.js"></script>
+    <script src="/Application/Home/Public/script/unslider.min.js"></script>
     <title>SSRCET-首页</title>
+    <style>
+        .banner {
+            position: relative;
+            overflow: auto;
+            text-align: center;
+        }
+
+        .banner li {
+            list-style: none;
+        }
+
+        .banner ul li {
+            float: left;
+        }
+
+        #b03 {
+            width: 450px;
+        }
+
+        #b03 .dots {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 20px;
+        }
+
+        #b03 .dots li {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin: 0 4px;
+            text-indent: -999em;
+            border: 2px solid #fff;
+            border-radius: 6px;
+            cursor: pointer;
+            opacity: .4;
+            -webkit-transition: background .5s, opacity .5s;
+            -moz-transition: background .5s, opacity .5s;
+            transition: background .5s, opacity .5s;
+        }
+
+        #b03 .dots li.active {
+            background: #fff;
+            opacity: 1;
+        }
+    </style>
 </head>
 <body>
 <!--顶部小横条 -- start -->
@@ -131,75 +179,43 @@
                                                                                   style="position:absolute;margin-left:851px;">更多&gt;&gt;</a>
             <!--转场图片 -- 开始 -->
             <div class="focusImg_Box">
-                <div id="KinSlideshow" class="focusimg float_left"
-                     style="visibility: visible; width: 450px; height: 285px; overflow: hidden; position: relative;">
+                <div id="KinSlideshow" class="focusimg float_left" style=" width: 450px; height: 285px;">
 
+                    <div class="banner" id="b03">
+                        <ul>
 
-                    <div id="KinSlideshow_moveBox"
-                         style="width: 450px; height: 285px; overflow: hidden; position: relative;">
-                        <div id="KinSlideshow_XposBox" style="float: left; width: 2000%;">
-                            <div id="KinSlideshow_content" style="float: left;"><a href="/xwdt/zxxw/39746.htm"><img
-                                    src="http://weee.sspu.edu.cn/wcm.files/upload/CMSdfzx/201704/201704060934002.jpg"
-                                    style="border: 0px none;" width="450" border="0" height="285"></a><a
-                                    href="/xwdt/zxxw/39747.htm"><img
-                                    src="http://weee.sspu.edu.cn/wcm.files/upload/CMSdfzx/201704/201704010147032.jpg"
-                                    style="border: 0px none;" width="450" border="0" height="285"></a><a
-                                    href="/xwdt/zxxw/39529.htm"><img
-                                    src="http://weee.sspu.edu.cn/wcm.files/upload/CMSdfzx/201703/201703240913022.jpg"
-                                    style="border: 0px none;" width="450" border="0" height="285"></a><a
-                                    href="/xwdt/zxxw/39521.htm"><img
-                                    src="http://weee.sspu.edu.cn/wcm.files/upload/CMSdfzx/201703/201703230347017.jpg"
-                                    style="border: 0px none;" width="450" border="0" height="285"></a><a
-                                    href="/xwdt/zxxw/37602.htm"><img
-                                    src="http://weee.sspu.edu.cn/wcm.files/upload/CMSdfzx/201612/201612290124024.jpg"
-                                    style="border: 0px none;" width="450" border="0" height="285"></a></div>
-                            <div id="KinSlideshow_contentClone" style="float: left;"><a href="/xwdt/zxxw/39746.htm"><img
-                                    src="http://weee.sspu.edu.cn/wcm.files/upload/CMSdfzx/201704/201704060934002.jpg"
-                                    style="border: 0px none;" width="450" border="0" height="285"></a><a
-                                    href="/xwdt/zxxw/39747.htm"><img
-                                    src="http://weee.sspu.edu.cn/wcm.files/upload/CMSdfzx/201704/201704010147032.jpg"
-                                    style="border: 0px none;" width="450" border="0" height="285"></a><a
-                                    href="/xwdt/zxxw/39529.htm"><img
-                                    src="http://weee.sspu.edu.cn/wcm.files/upload/CMSdfzx/201703/201703240913022.jpg"
-                                    style="border: 0px none;" width="450" border="0" height="285"></a><a
-                                    href="/xwdt/zxxw/39521.htm"><img
-                                    src="http://weee.sspu.edu.cn/wcm.files/upload/CMSdfzx/201703/201703230347017.jpg"
-                                    style="border: 0px none;" width="450" border="0" height="285"></a><a
-                                    href="/xwdt/zxxw/37602.htm"><img
-                                    src="http://weee.sspu.edu.cn/wcm.files/upload/CMSdfzx/201612/201612290124024.jpg"
-                                    style="border: 0px none;" width="450" border="0" height="285"></a></div>
-                        </div>
-                    </div>
+                            <li style="width: 20%;"><img src="/Application/Home/Public/images/01.jpg" alt="" width="450"
+                                                         height="285"></li>
 
+                            <li style="width: 20%;"><img src="/Application/Home/Public/images/02.jpg" alt="" width="450"
+                                                         height="285"></li>
 
-                    <div class="KinSlideshow_titleBar"
-                         style="height: 25px; width: 100%; position: absolute; bottom: 0px; left: 0px;"></div>
-                    <div class="KinSlideshow_btnBox" style="position:absolute;right:10px;bottom:5px; z-index:100">
-                        <ul id="btnlistID" style="margin:0;padding:0; overflow:hidden">
-                            <li style="list-style: outside none none; float: left; width: 10px; height: 10px; border-width: 1px; border-color: rgb(204, 204, 204); border-style: solid; background: rgb(220, 220, 219) none repeat scroll 0% 0%; text-align: center; cursor: pointer; margin-left: 3px; font-size: 12px; font-family: Arial; line-height: 18px; opacity: 1; color: rgb(220, 220, 219);">
-                                1
-                            </li>
-                            <li style="list-style: outside none none; float: left; width: 10px; height: 10px; border-width: 1px; border-color: rgb(204, 204, 204); border-style: solid; background: rgb(220, 220, 219) none repeat scroll 0% 0%; text-align: center; cursor: pointer; margin-left: 3px; font-size: 12px; font-family: Arial; line-height: 18px; opacity: 1; color: rgb(220, 220, 219);">
-                                2
-                            </li>
-                            <li style="list-style: outside none none; float: left; width: 10px; height: 10px; border-width: 1px; border-color: rgb(204, 204, 204); border-style: solid; background: rgb(220, 220, 219) none repeat scroll 0% 0%; text-align: center; cursor: pointer; margin-left: 3px; font-size: 12px; font-family: Arial; line-height: 18px; opacity: 1; color: rgb(220, 220, 219);">
-                                3
-                            </li>
-                            <li style="list-style: outside none none; float: left; width: 10px; height: 10px; border-width: 1px; border-color: rgb(204, 204, 204); border-style: solid; background: rgb(220, 220, 219) none repeat scroll 0% 0%; text-align: center; cursor: pointer; margin-left: 3px; font-size: 12px; font-family: Arial; line-height: 18px; opacity: 1; color: rgb(220, 220, 219);">
-                                4
-                            </li>
-                            <li style="list-style: outside none none; float: left; width: 10px; height: 10px; border-width: 1px; border-color: rgb(220, 220, 219); border-style: solid; background: rgb(204, 204, 204) none repeat scroll 0% 0%; text-align: center; cursor: pointer; margin-left: 3px; font-size: 12px; font-family: Arial; line-height: 18px; opacity: 1; color: rgb(204, 204, 204);">
-                                5
-                            </li>
+                            <li style="width: 20%;"><img src="/Application/Home/Public/images/03.jpg" alt="" width="450"
+                                                         height="285"></li>
+
+                            <li style="width: 20%;"><img src="/Application/Home/Public/images/04.jpg" alt="" width="450"
+                                                         height="285"></li>
+
+                            <li style="width: 20%;"><img src="/Application/Home/Public/images/05.jpg" alt="" width="450"
+                                                         height="285"></li>
+
                         </ul>
                     </div>
+
+
                 </div>
             </div>
+            <script>
+                (function () {
+                    $('#b03').unslider({
+                        dots: true
+                    });
+                })();
+
+            </script>
             <!--转场图片 结束-->
         </div>
         <div class="new-right">
-
-
             <li><a></a></li>
 
             <a class="title-content" style="display:block" href="/xwdt/zxxw/39824.htm" target="_blank"
@@ -1050,7 +1066,7 @@
                         <param name="allowscriptaccess" value="always">
                         <param name="seamlesstabbing" value="true">
                         <param name="wmode" value="opaque">
-                  </object>
+                    </object>
                 </div>
             </div>
         </div>
@@ -1069,15 +1085,17 @@
                 <a href="/info/iIndex.jsp?cat_id=11636">成果展示&nbsp;&nbsp;/&nbsp;</a>
                 <a href="/rcpy/31662.htm">人才培养&nbsp;</a>
             </p>
-            <p>上海电子废弃物资源化协同创新中心 版权所有&nbsp;&nbsp;&nbsp; 技术支持：<a href="javascript:void(0);">瑞鸟科技</a></p>
-            <p>Copyright &copy; 2013 All Rights Reserved. 沪ICP备09045255号</p>
+            <p>上海曙光环境治理新技术研究中心 版权所有&nbsp;&nbsp;&nbsp; 技术支持：<a href="javascript:void(0);">语粒信息科技</a></p>
+            <p>Copyright &copy; 2017 All Rights Reserved. 沪ICP备XXXXX号</p>
         </div>
 
         <div class="clearfix"></div>
     </div>
 </div>
-<script src="/Public/script/jquery.1.7.min.js"></script>
+
 <script src="/Application/Home/Public/script/nav.js?v=12"></script>
 <script src="/Application/Home/Public/script/tech-scroller.js?v=12"></script>
+
+
 </body>
 </html>
