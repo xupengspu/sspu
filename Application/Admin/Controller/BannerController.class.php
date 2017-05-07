@@ -7,6 +7,7 @@
  */
 
 namespace Admin\Controller;
+
 use Admin\Biz\BannerBiz;
 
 /**
@@ -21,6 +22,9 @@ class BannerController extends BaseController
         $this->display('/banner/upload');
     }
 
+    /**
+     * 上传
+     */
     public function upload()
     {
         $upload = new \Think\Upload();// 实例化上传类
@@ -34,14 +38,46 @@ class BannerController extends BaseController
         if (!$info) {// 上传错误提示错误信息
             $this->error($upload->getError());
         } else {// 上传成功
-            BannerBiz::savePath('/Uploads/'.$info['file']['savepath'] . $info['file']['savename']);
-            $this->ajaxSuccess('','/Uploads/'.$info['file']['savepath'] . $info['file']['savename'] );
+            $banner = BannerBiz::savePath('/Uploads/' . $info['file']['savepath'] . $info['file']['savename']);
+            $this->ajaxSuccess('', $banner);
         }
     }
 
-    public function load ()
+    /**
+     * 获取图片
+     */
+    public function load()
     {
-        $banner  = M('banner')->find();
-        $this->ajaxSuccess('',$banner['path'] );
+        $banners = BannerBiz::listBanner();
+        $this->ajaxSuccess('', $banners);
     }
+
+    /**
+     *
+     */
+    public function remove()
+    {
+        BannerBiz::removeBanner();
+        $this->ajaxSuccess();
+    }
+
+    /**
+     * 添加文章
+     */
+    public function addArticle()
+    {
+        $banner = BannerBiz::addArticle();
+        $this->ajaxSuccess('', $banner);
+    }
+
+    /**
+     * 选择文章
+     */
+    public function selectArticle()
+    {
+        $this->assign('banner_id', I('banner_id'));
+        $this->display('/banner/article-selector');
+    }
+
+
 }

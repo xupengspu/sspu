@@ -6,19 +6,6 @@
             text-align: center;
         }
 
-        .slider {
-            cursor: pointer;
-        }
-
-        .s-open:after {
-
-            content: '[ + ]';
-        }
-
-        .s-close:after {
-
-            content: '[ - ]';
-        }
     </style>
     <div>
 
@@ -34,19 +21,19 @@
                         <form id="demo-form2" class="form-horizontal form-label-left" novalidate="">
 
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">标题名称 <span
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">姓名<span
                                         class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="title" required="required" class="form-control col-md-7 col-xs-12"
-                                             type="text">
+                                    <input id="name" required="required" class="form-control col-md-7 col-xs-12"
+                                           type="text">
                                 </div>
                             </div>
 
                             <!--<div class="ln_solid"></div>-->
                             <div class="form-group">
                                 <div style="float: right;">
-                                    <a id="add-btn" class="btn btn-primary" href="/admin/block/blog">新建文章</a>
+                                    <a id="add-btn" class="btn btn-primary" href="/admin/teacher/addTeacher">添加教师</a>
                                 </div>
                                 <div style="float: right;">
                                     <a id="search-btn" class="btn btn-primary" href="#">查询</a>
@@ -64,7 +51,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>文章列表</h2>
+                        <h2>师资列表</h2>
                         <span class="clearfix"></span>
                     </div>
                     <div class="x_content">
@@ -72,11 +59,10 @@
                         <table class="table table-bordered">
                             <thead>
                             <tr>
-                                <th>标题名称</th>
-                                <th style="width: 100px;">内容</th>
-                                <th>所属模块</th>
-                                <th>创建时间</th>
-                                <th>最后更新时间</th>
+                                <th>姓名</th>
+                                <th>头衔一</th>
+                                <th>头衔二</th>
+                                <th>头衔三</th>
                                 <th>操作</th>
                             </tr>
 
@@ -98,6 +84,6 @@
 
 <block name="script">
 
-    <script src="/Application/Admin/Public/script/blocklist.js?v=888"></script>
+    <script src="/Application/Admin/Public/script/teacherlist.js?v=888"></script>
 
 </block>
