@@ -8,6 +8,7 @@
 
 namespace Admin\Controller;
 
+use Admin\Biz\BaseBiz;
 use Admin\Biz\SupplierBiz;
 
 /**
@@ -45,7 +46,7 @@ class SupplierController extends BaseController
     /**
      * 跳转到添加教师页面
      */
-    public function addTeacher()
+    public function addSupplier()
     {
         $this->assign('id', I('id'));
         $this->display('/supplier/add-supplier');

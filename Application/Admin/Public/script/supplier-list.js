@@ -13,7 +13,7 @@
             url: '/admin/supplier/search',
             dataType: 'json',
             type: 'post',
-            data: {'name': $('#name').val()},
+            data: {'supplier_name': $('#supplier_name').val(),"supplier_level":$('#supplier_level').val()},
             success: function (resp) {
                 supplier.fillTable(resp.data);
             }
@@ -32,16 +32,16 @@
         for (var i = 0; i < result.length; i++) {
             var row = result[i];
             tbody += '<tr>';
-            tbody += "<td>" + row['name'] + "</td>";
-            tbody += "<td class='content'>" + row['title_1'] + "</td>";
-            tbody += "<td>" + row['title_2'] + "</td>";
-            tbody += "<td>" + row['title_3'] + "</td>";
+            tbody += "<td>" + row['supplier_name'] + "</td>";
+            tbody += "<td class='content'>" + row['supplier_level'] + "</td>";
+            tbody += "<td>" + row['contact'] + "</td>";
+            tbody += "<td>" + row['tel'] + "</td>";
+            tbody += "<td>" + row['mobile'] + "</td>";
+            tbody += "<td>" + row['address'] + "</td>";
             tbody += "<td  style='text-align:center;'>" +
                 "<a href='/admin/supplier/addsupplier?id=" + row['id'] + "' style='color: #00aeef'>[查看详情]</a>" +
                 "<a href='#' class='remove-btn' style='color: #d43f3a' data-id='" + row['id'] + "'>[删除]</a>";
-            if (row['type'] == "0" || row['type'] == "3") {
-                tbody += "<a class='btn-recommend' data-id='" + row['id'] + "' href='#' style='color: #245269'>[设置封面]</a>"
-            }
+
             tbody += "</td></tr>";
         }
         $('#result-body').empty().append(tbody);
@@ -53,7 +53,7 @@
         $(".remove-btn").click(function () {
             var id = $(this).attr('data-id');
 
-            layer.confirm('确定要删除该条教师信息吗？', {
+            layer.confirm('确定要删除该条供应商信息吗？', {
                 btn: ['确定', '取消'] //按钮
             }, function () {
                 $.ajax({
