@@ -13,7 +13,7 @@
             url: '/admin/supplier/search',
             dataType: 'json',
             type: 'post',
-            data: {'supplier_name': $('#supplier_name').val(),"supplier_level":$('#supplier_level').val()},
+            data: {'supplier_name': $('#supplier_name').val(), "supplier_level": $('#supplier_level').val()},
             success: function (resp) {
                 supplier.fillTable(resp.data);
             }
@@ -85,6 +85,7 @@
     };
 
     supplier.addListener();
+    supplier.query();
     main.supplier = supplier;
 
 })(window);
