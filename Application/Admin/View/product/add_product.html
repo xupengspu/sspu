@@ -70,12 +70,26 @@
                 <div class="x_title">
                     <h2>供应商列表</h2>
                     <span class="nav navbar-right panel_toolbox">
-                        <a href="#" class="btn btn-warning">添加供应商</a>
+                        <a href="#" id="add-supplier" class="btn btn-warning">添加供应商</a>
                     </span>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>供应商等级</th>
+                            <th>供应商名称</th>
+                            <th>操作</th>
+                        </tr>
 
+                        </thead>
+
+
+                        <tbody id="supplier_table_body">
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -109,6 +123,6 @@
         }
 
     </script>
-    <script src="/Application/Admin/Public/script/add-product.js?v=8"></script>
+    <script src="/Application/Admin/Public/script/add-product.js?v=98"></script>
 
 </block>

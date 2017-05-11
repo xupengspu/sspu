@@ -32,7 +32,7 @@ class ProductController extends BaseController
      */
     public function addproduct()
     {
-        $this->assign("id",I("id"));
+        $this->assign("id", I("id"));
         $this->display("/product/add_product");
     }
 
@@ -43,8 +43,9 @@ class ProductController extends BaseController
     {
         $id = I('id');
         $product = M('product')->where("id = '$id'")->find();
-        $this->ajaxSuccess('' , $product);
+        $this->ajaxSuccess('', $product);
     }
+
     /**
      * 查询
      */
@@ -83,15 +84,24 @@ class ProductController extends BaseController
      */
     public function save()
     {
+
         $product = I('product');
+        $product_id = $product['id'];
+        $supplier_ids = $product['supplier_ids'];
+
         $product['detail'] = urldecode($product['detail']);
         if (empty($product['id'])) {
             $product['id'] = BaseBiz::getUUID();
+            $product_id = $product['id'];
             M('product')->add($product);
         } else {
             $id = $product['id'];
             M('product')->where("id='$id'")->save($product);
         }
+
+        //清空
+        M("supplier_product")->where("product_id='$product_id'")->delete();
+        ProductBiz::addSuppliers($product_id, $supplier_ids);
 
         $this->ajaxSuccess();
     }
@@ -104,6 +114,12 @@ class ProductController extends BaseController
         $id = I('id');
 
         M('product')->where("id = '$id'")->delete();
+        $this->ajaxSuccess();
+    }
+
+    public function addsupplier()
+    {
+        ProductBiz::addSupplier();
         $this->ajaxSuccess();
     }
 }

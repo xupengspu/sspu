@@ -23,6 +23,7 @@ class PageController extends Controller
         $sid = I('sid');
 
         //查询文章
+        $sql = "";
 
 //        $menu
         $banner = M("banner")->find();

@@ -81,4 +81,50 @@ class SupplierController extends BaseController
         $this->ajaxSuccess();
     }
 
+    /**
+     * supplier 选择
+     */
+    public function supplier_selector()
+    {
+        $this->assign("product_id", I('id'));
+        $this->display("/supplier/supplier_selector");
+    }
+
+    public function loadByIds()
+    {
+        $ids = I("ids");
+        $condition['id'] = array("in", $ids);
+        $result = M("supplier")->where($condition)->select();
+        $this->ajaxSuccess('', $result);
+    }
+
+    /**
+     * 查询产品供应商
+     */
+    public function querySupplierByProduct()
+    {
+        $product_id = I("product_id");
+
+        $sql = "SELECT  s.supplier_name,s.supplier_level,s.id FROM supplier_product sp  INNER JOIN   supplier s 
+                WHERE sp.supplier_id = s.id and sp.product_id='" . $product_id . "' ";
+
+        $result = M()->query($sql);
+
+        $this->ajaxSuccess('', $result);
+
+    }
+
+    public function removeProSupplier()
+    {
+        $supplier_id = I("supplier_id");
+        $product_id = I("product_id");
+        $condition = array();
+
+        $condition['supplier_id'] = $supplier_id;
+        $condition['product_id'] = $product_id;
+
+        M('supplier_product')->where($condition)->delete();
+
+        $this->ajaxSuccess();
+    }
 }

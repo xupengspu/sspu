@@ -49,12 +49,19 @@
     //保存教师信息
     add_product.save_product = function () {
         $("#save-btn").click(function () {
+            var supplier_ids = [];
+            //供应商列表
+            $("#supplier_table_body tr").each(function (index, ele) {
+                supplier_ids.push($(ele).attr("data-id"));
+            })
+
             var param = {
                 'id': $("#id").val(),
                 'product_name': $('#product_name').val(),
                 'product_code': $('#product_code').val(),
                 'cover_image': $('#photo_picker').attr('path'),
                 'detail': encodeURIComponent(window.ue.getContent()),
+                'supplier_ids': supplier_ids
             };
             $.ajax({
                 url: '/admin/product/save',
@@ -77,7 +84,36 @@
             });
         });
     };
-
+    /**
+     *
+     * @param level
+     * @returns {*}
+     */
+    add_product.formatLevel = function (level) {
+        if (level == "1") {
+            return "一级供应商"
+        } else if (level == "2") {
+            return "二级供应商"
+        }
+        else if (level == "3") {
+            return "三级供应商"
+        }
+    }
+    /**
+     * 绑定事件
+     */
+    add_product.bindEvent = function () {
+        $("#add-supplier").click(function () {
+            layer.open({
+                type: 2,
+                area: ['900px', '600px'],
+                fixed: true, //不固定
+                maxmin: false,
+                title: '选择供应商',
+                content: '/admin/supplier/supplier_selector?id=' + $("#id").val()
+            });
+        });
+    };
     //初始化数据
     add_product.initData = function () {
         if ($("#id").val()) {
@@ -104,12 +140,91 @@
             })
         }
 
+    };
+
+    add_product.lazyBind = function () {
+        $(".remove-supplier").unbind("click"); //移除click
+        $(".remove-supplier").click(function () {
+            var _this = $(this);
+            var supplier_id = $(this).attr('data-id');
+            $.ajax({
+                url: '/admin/supplier/removeProSupplier',
+                dataType: 'json',
+                type: 'post',
+                data: {'product_id': $("#id").val(), 'supplier_id': supplier_id},
+                success: function (resp) {
+                    $(_this).closest('tr').remove();
+
+                }
+
+            });
+        });
     }
 
+    /**
+     * 查新供应商
+     */
+    add_product.querySupplier = function () {
+
+        $.ajax({
+            url: '/admin/supplier/querySupplierByProduct',
+            dataType: 'json',
+            type: 'post',
+            data: {'product_id': $("#id").val()},
+            success: function (resp) {
+                var suppliers = resp.data;
+
+                for (var i = 0; i < suppliers.length; i++) {
+                    var tr = "<tr data-id='" + suppliers[i]['id'] + "'>";
+                    tr += "<td>" +  add_product.formatLevel(suppliers[i]['supplier_level']) + "</td>";
+                    tr += "<td>" + suppliers[i]['supplier_name'] + "</td>";
+                    tr += "<td  style='text-align:center;'>" +
+                        "<a href='#' class='remove-supplier' style='color: #d43f3a' data-id='" + suppliers[i]['id'] + "'>[删除]</a></td>";
+                    tr += "</tr>";
+
+
+                    $("#supplier_table_body").append(tr);
+                    add_product.lazyBind();
+                }
+
+            }
+
+        });
+    }
+
+    add_product.callback = function (supplier_ids) {
+
+        $.ajax({
+            url: '/admin/supplier/loadByIds',
+            dataType: 'json',
+            type: 'post',
+            data: {'ids': supplier_ids},
+            success: function (resp) {
+                var suppliers = resp.data;
+
+                for (var i = 0; i < suppliers.length; i++) {
+                    var tr = "<tr data-id='" + suppliers[i]['id'] + "'>";
+                    tr += "<td>" +  add_product.formatLevel(suppliers[i]['supplier_level']) + "</td>";
+                    tr += "<td>" + suppliers[i]['supplier_name'] + "</td>";
+                    tr += "<td  style='text-align:center;'>" +
+                        "<a href='#' class='remove-supplier' style='color: #d43f3a' data-id='" + suppliers[i]['id'] + "'>[删除]</a></td>";
+                    tr += "</tr>";
+
+                    $("#supplier_table_body").append(tr);
+                }
+
+            }
+
+        })
+    }
     //
 
 
     add_product.buildUploader('photo_picker');
     add_product.save_product();
     add_product.initData();
+    add_product.bindEvent();
+    add_product.querySupplier();
+    main.add_product = add_product;
+
 })(window);

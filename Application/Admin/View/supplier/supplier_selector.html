@@ -1,4 +1,4 @@
-<extend name="./common/admin_template"/>
+<extend name="./common/simple_template"/>
 
 <block name="content">
     <style>
@@ -28,6 +28,7 @@
                                     <input id="supplier_name" required="required"
                                            class="form-control col-md-7 col-xs-12"
                                            type="text">
+                                    <input type="hidden" value="{$product_id}" id="product_id">
                                 </div>
                             </div>
 
@@ -49,7 +50,7 @@
                             <!--<div class="ln_solid"></div>-->
                             <div class="form-group">
                                 <div style="float: right;">
-                                    <a id="add-btn" class="btn btn-primary" href="/admin/supplier/addSupplier">添加供应商</a>
+                                    <a id="confirm" class="btn btn-danger" href="/admin/supplier/addSupplier">确定</a>
                                 </div>
                                 <div style="float: right;">
                                     <a id="search-btn" class="btn btn-primary" href="#">查询</a>
@@ -75,13 +76,14 @@
                         <table class="table table-bordered">
                             <thead>
                             <tr>
+                                <th></th>
                                 <th>供应商名称</th>
                                 <th>供应商等级</th>
                                 <th>联系人</th>
                                 <th>座机</th>
                                 <th>手机号码</th>
                                 <th>详细地址</th>
-                                <th>操作</th>
+
                             </tr>
 
                             </thead>
@@ -102,6 +104,6 @@
 
 <block name="script">
 
-    <script src="/Application/Admin/Public/script/supplier-list.js?v=87"></script>
+    <script src="/Application/Admin/Public/script/supplier-selector.js?v=887"></script>
 
 </block>
