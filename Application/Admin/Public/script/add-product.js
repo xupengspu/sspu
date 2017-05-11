@@ -51,12 +51,10 @@
         $("#save-btn").click(function () {
             var param = {
                 'id': $("#id").val(),
-                'name': $('#name').val(),
-                'title_1': $('#title').val(),
-                'title_2': $('#title2').val(),
-                'title_3': $('#title3').val(),
-                'introduction': encodeURIComponent(window.ue.getContent()),
-                'photo': $('#photo_picker').attr('path')
+                'product_name': $('#product_name').val(),
+                'product_code': $('#product_code').val(),
+                'cover_image': $('#photo_picker').attr('path'),
+                'detail': encodeURIComponent(window.ue.getContent()),
             };
             $.ajax({
                 url: '/admin/product/save',
@@ -65,12 +63,11 @@
                 data: {'product': param},
                 success: function (resp) {
                     if (resp.code == 0) {
-                        layer.alert("文章保存或者更新成功！");
+                        layer.alert("产品保存或者更新成功！");
                         if ($('#id').val() == '') {
-                            $('#title').val('');
-                            $('#title2').val('');
-                            $('#title3').val('');
-                            $('#name').val('');
+                            $('#product_name').val('');
+                            $('#product_code').val('');
+
                             $('#photo_picker').empty();
                             window.ue.setContent('');
                         }
@@ -85,21 +82,19 @@
     add_product.initData = function () {
         if ($("#id").val()) {
             $.ajax({
-                url: '/admin/teacher/load',
+                url: '/admin/product/load',
                 dataType: 'json',
                 type: 'post',
                 data: {'id': $("#id").val()},
                 success: function (resp) {
-                    var teacher = resp.data;
+                    var product = resp.data;
 
-                    $('#title').val(teacher['title_1']);
-                    $('#title2').val(teacher['title_2']);
-                    $('#title3').val(teacher['title_3']);
-                    $('#name').val(teacher['name']);
-                    $('#photo_picker').append("<img src='" + teacher['photo'] + "'>");
+                    $('#product_name').val(product['product_name']);
+                    $('#product_code').val(product['product_code']);
+                    $('#photo_picker').append("<img src='" + product['cover_image'] + "'>");
                     window.ue.addListener("ready", function () {
                         // editor准备好之后才可以使用
-                        window.ue.setContent(teacher['introduction']);
+                        window.ue.setContent(product['detail']);
 
                     });
 
@@ -115,6 +110,6 @@
 
 
     add_product.buildUploader('photo_picker');
-    add_product.saveTeacher();
+    add_product.save_product();
     add_product.initData();
 })(window);
