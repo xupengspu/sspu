@@ -76,11 +76,12 @@
     <div class="mainBox" style="position: relative;height: 370px;width: 100%;">
         <div class="slider-scroll" id="banner-scroll">
             <ul>
-                <li><img src="{$banner}" alt="" width="100%" height="370"></li>
-                <li><img src="{$banner}" alt="" width="100%" height="370"></li>
-                <li><img src="{$banner}" alt="" width="100%" height="370"></li>
-                <li><img src="{$banner}" alt="" width="100%" height="370"></li>
-                <li><img src="{$banner}" alt="" width="100%" height="370"></li>
+                <volist name="banners" id="banner">
+                    <li><a href="/page/detail?aid={$banner.article_id}"><img src="{$banner.path}" alt="" width="100%"
+                                                                             height="370"></a></li>
+                </volist>
+
+
             </ul>
             <a href="javascript:void(0);" class="unslider-arrow04 prev">
                 <img class="arrow al" src="/Application/Home/Public/images/arrowl.png" alt="prev">
@@ -142,30 +143,19 @@
 <div class="outerBox ">
     <div class="mainBox">
         <div class="new-left">
-            <a href="/info/iIndex.jsp?cat_id=11633" class="title-two">新闻动态</a> <a href="/info/iIndex.jsp?cat_id=11633"
-                                                                                  class="lanmu_more"
-                                                                                  style="position:absolute;margin-left:851px;">更多&gt;&gt;</a>
+            <a href="/page/news" class="title-two">新闻动态</a> <a href="/page/news" class="lanmu_more"
+                                                               style="position:absolute;margin-left:851px;">更多&gt;&gt;</a>
             <!--转场图片 -- 开始 -->
             <div class="focusImg_Box">
                 <div id="KinSlideshow" class="focusimg float_left" style=" width: 450px; height: 285px;">
 
                     <div class="slider-scroll" id="news-scroll" style="width: 450px;">
                         <ul>
+                            <volist name="rec_articles" id="rec_article">
+                                <li style="width: 20%;"><a href="/page/detail?aid={$rec_article.id}"><img
+                                        src="{$rec_article.coverage}" alt="" width="450" height="285"></a></li>
+                            </volist>
 
-                            <li style="width: 20%;"><img src="/Application/Home/Public/images/01.jpg" alt="" width="450"
-                                                         height="285"></li>
-
-                            <li style="width: 20%;"><img src="/Application/Home/Public/images/02.jpg" alt="" width="450"
-                                                         height="285"></li>
-
-                            <li style="width: 20%;"><img src="/Application/Home/Public/images/03.jpg" alt="" width="450"
-                                                         height="285"></li>
-
-                            <li style="width: 20%;"><img src="/Application/Home/Public/images/04.jpg" alt="" width="450"
-                                                         height="285"></li>
-
-                            <li style="width: 20%;"><img src="/Application/Home/Public/images/05.jpg" alt="" width="450"
-                                                         height="285"></li>
 
                         </ul>
                     </div>
@@ -179,21 +169,18 @@
         <div class="new-right">
             <li><a></a></li>
 
-            <a class="title-content" style="display:block" href="/xwdt/zxxw/39824.htm" target="_blank"
-               title="热烈祝贺王景伟教授当选StEP组织监督委员会委员">热烈祝贺王景伟教授当选StEP组织监督委员会...</a>
-            <a class="profile-content" style="display:block;text-indent:20px" href="/xwdt/zxxw/39824.htm"
-               target="_blank"> 2017年4月5日，国际著名的电子废弃物研究机构&mdash;&mdash;解决电子废物问题联盟（StEP）召开了电子废物管理全球大会，选举产生了新一届监督委员会，我中心执行主任王景伟教授作为中国唯一的代表被一致同意成为监督委员会委员...</a>
+            <a class="title-content" style="display:block" href="/page/detail?aid={$top_article.id}" target="_blank"
+               title="{$top_article.title}">{$top_article.title}</a>
+            <a class="profile-content" style="display:block;text-indent:20px" href="/page/detail?aid={$top_article.id}"
+               target="_blank"> {$top_article.content}</a>
 
 
             <div class="contentBox1">
                 <ul class="commonList_dot">
-                    <li><a href="/xwdt/zxxw/39746.htm" target="_blank" title="中心协办中国再生资源联盟学术会议并承建废弃电器电子产品平台">中心协办中国再生资源联盟学术会议并承建废弃电器电子产品平台</a>
-                    </li>
-
-                    <li><a href="/xwdt/zxxw/39747.htm" target="_blank" title="中心教师赴昆明理工大学交流合作">中心教师赴昆明理工大学交流合作</a></li>
-
-                    <li><a href="/xwdt/zxxw/39529.htm" target="_blank" title="上海大学钱教授及顺德职业技术学院李教授一行来中心交流工作">上海大学钱教授及顺德职业技术学院李教授一行来中心交流工作</a>
-                    </li>
+                    <volist name="arts" id="article">
+                        <li><a href="/xwdt/zxxw/39746.htm" target="_blank" title="{$article.title}">{$article.title}</a>
+                        </li>
+                    </volist>
 
 
                 </ul>
@@ -203,55 +190,28 @@
 
         <a class="title-two">产品展示</a>
 
-        <a href="/info/iIndex.jsp?cat_id=11633" class="lanmu_more" style="position:relative; right: 25px;">更多&gt;&gt;</a>
+        <a href="/info/iIndex.jsp?cat_id=11633" class="lanmu_more"
+           style="position:relative; right: 25px;">更多&gt;&gt;</a>
     </div>
 </div>
 <!--产品展示 开始-->
 <div class="outerBox ">
 
     <div class="mainBox">
+        <volist name="products" id="product">
+            <div class="product_container">
+                <a href="/product/detail?pid={$product.id}">
+                    <img class="product_image" src="{$product.cover_image}">
+                    <div class="product_desc">{$product.product_name}</div>
+                </a>
 
-        <div class="product_container">
-            <img class="product_image" src="/Public/images/pro.jpg">
-            <div class="product_desc">中国国家队指定鼠标</div>
-        </div>
+            </div>
 
-        <div class="product_container">
-            <img class="product_image" src="/Public/images/pro.jpg">
-            <div class="product_desc">中国国家队指定鼠标</div>
-        </div>
+        </volist>
 
-        <div class="product_container">
-            <img class="product_image" src="/Public/images/pro.jpg">
-            <div class="product_desc">中国国家队指定鼠标</div>
-        </div>
-
-        <div class="product_container">
-            <img class="product_image" src="/Public/images/pro.jpg">
-            <div class="product_desc">中国国家队指定鼠标</div>
-        </div>
-
-        <div class="product_container">
-            <img class="product_image" src="/Public/images/pro.jpg">
-            <div class="product_desc">中国国家队指定鼠标</div>
-        </div>
-
-        <div class="product_container">
-            <img class="product_image" src="/Public/images/pro.jpg">
-            <div class="product_desc">中国国家队指定鼠标</div>
-        </div>
-
-        <div class="product_container">
-            <img class="product_image" src="/Public/images/pro.jpg">
-            <div class="product_desc">中国国家队指定鼠标</div>
-        </div>
-        <div class="product_container">
-            <img class="product_image" src="/Public/images/pro.jpg">
-            <div class="product_desc">中国国家队指定鼠标</div>
-        </div>
 
         <div class="clearfix"></div>
-        <a class="title-two" >师资队伍</a>
+        <a class="title-two">师资队伍</a>
     </div>
 </div>
 <!--产品展示 结束-->
@@ -1037,16 +997,18 @@
             <div class="list_box2 xxjj">
                 <div class="lanmu_box_new">
                     <div style="position: absolute;width: 100px; height: 30px; border-bottom: 0px solid #03579d">
-                        <a href="/info/iIndex.jsp?cat_id=11635" class="lanmu_title">合作范例</a>
+                        <a href="/page/cooperate" class="lanmu_title">合作范例</a>
                     </div>
-                    <a href="/info/iIndex.jsp?cat_id=11635" class="lanmu_more">更多&gt;&gt;</a>
+                    <a href="/page/cooperate" class="lanmu_more">更多&gt;&gt;</a>
                 </div>
 
                 <div class="contentBox6">
                     <ul class="commonList_dot">
+                        <volist name="copers" id="coper">
+                            <li><span style="color:#2b2b2b">{$coper.create_time}</span><a href="/page/detail?aid={$coper.id}" target="_blank"
+                                                                           title="合作范例">{$coper.title}</a></li>
+                        </volist>
 
-                        <li><span style="color:#2b2b2b">07-25</span><a href="/gzfl/27524.htm" target="_blank"
-                                                                       title="合作范例">合作范例</a></li>
 
 
                     </ul>
@@ -1059,13 +1021,7 @@
             <div id="jwplayer"
                  style="background: transparent !important; margin:0 auto; width:560px; height:370px; padding: 9px 20px; overflow:hidden; background: #f7f7f7; border: 1px solid #f7f7f7">
                 <div id="player_wrapper" style="position: relative; width: 560px; height: 370px;">
-                    <object type="application/x-shockwave-flash" data="/Application/Home/Public/swf/flash5281.swf"
-                            bgcolor="#000000" id="player" name="player" tabindex="0" width="100%" height="100%">
-                        <param name="allowfullscreen" value="true">
-                        <param name="allowscriptaccess" value="always">
-                        <param name="seamlesstabbing" value="true">
-                        <param name="wmode" value="opaque">
-                    </object>
+                    {$video.url}
                 </div>
             </div>
         </div>

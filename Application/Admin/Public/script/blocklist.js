@@ -101,7 +101,7 @@
             var row = result[i];
             tbody += '<tr>';
             tbody += "<td>" + row['title'] + "</td>";
-            tbody += "<td class='content'>" + row['content'] + "</td>";
+            // tbody += "<td class='content' style='overflow: hidden;'>" + row['content'] + "</td>";
             tbody += "<td>" + blocklist.format_type(row['type']) + "</td>";
             tbody += "<td>" + row['create_time'] + "</td>";
             tbody += "<td>" + row['update_time'] + "</td>";

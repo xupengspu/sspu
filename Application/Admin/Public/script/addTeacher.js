@@ -52,6 +52,7 @@
             var param = {
                 'id': $("#id").val(),
                 'name': $('#name').val(),
+                'depart':$('#depart').val(),
                 'title_1': $('#title').val(),
                 'title_2': $('#title2').val(),
                 'title_3': $('#title3').val(),
@@ -71,6 +72,7 @@
                             $('#title2').val('');
                             $('#title3').val('');
                             $('#name').val('');
+                            $('#depart').val('');
                             $('#photo_picker').empty();
                             window.ue.setContent('');
                         }
@@ -94,6 +96,7 @@
 
                     $('#title').val(teacher['title_1']);
                     $('#title2').val(teacher['title_2']);
+                    $('#depart').val(teacher['depart']);
                     $('#title3').val(teacher['title_3']);
                     $('#name').val(teacher['name']);
                     $('#photo_picker').append("<img src='" + teacher['photo'] + "'>");

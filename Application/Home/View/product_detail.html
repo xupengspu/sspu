@@ -1,0 +1,32 @@
+<extend name="./template"/>
+<block name="title"><title>标题</title></block>
+
+<block name="contentBox6">
+    <div class="contentBox6" style="min-height: 600px; ">
+
+        <div class="content-body">&nbsp;
+            {$product.detail}
+        </div>
+
+        <div>
+            <div>产品供应商</div>
+            <table>
+                <tr>
+                    <th>供应商名称</th>
+                    <th>联系人</th>
+                    <th>联系电话</th>
+                    <th>地址</th>
+                </tr>
+
+                <volist name="suppliers" id="supplier">
+                    <tr>
+                        <td>{$supplier.supplier_name}</td>
+                        <td>{$supplier.contact}</td>
+                        <td>{$supplier.tel}</td>
+                        <td>{$supplier.address}</td>
+                    </tr>
+                </volist>
+            </table>
+        </div>
+    </div>
+</block>

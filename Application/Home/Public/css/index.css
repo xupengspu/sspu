@@ -278,6 +278,9 @@ ul.dropdown ul li a:hover {
     margin-bottom: 20px;
     padding-bottom: 10px;
     text-align: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .contentBox1 {

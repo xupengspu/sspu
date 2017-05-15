@@ -72,4 +72,41 @@ class PageController extends Controller
         $this->assign('title', $result['title']);
         $this->display('/contet');
     }
+
+    /**
+     * 新闻页面
+     */
+    public function news()
+    {
+        $menus = MenuBiz::search();
+        $banner = M("banner")->find();
+
+
+        $this->assign('banner', $banner['path']);
+        $this->assign('menus', $menus);
+
+        $result = M("article")->where("type=0")->select();
+        $this->assign('contents', $result);
+        $this->assign('title', "新闻");
+        $this->display('/contet-list');
+    }
+
+    /**
+     * 合作范例
+     */
+    public function cooperate()
+    {
+        $menus = MenuBiz::search();
+        $banner = M("banner")->find();
+
+
+        $this->assign('banner', $banner['path']);
+        $this->assign('menus', $menus);
+
+        $result = M("article")->where("type=2")->select();
+        $this->assign('contents', $result);
+        $this->assign('title', "合作范例");
+        $this->display('/contet-list');
+    }
+
 }
