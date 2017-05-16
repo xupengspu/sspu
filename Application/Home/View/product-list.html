@@ -1,0 +1,16 @@
+<extend name="./template"/>
+<block name="title"><title>产品列表</title></block>
+
+<block name="contentBox6">
+    <link rel="stylesheet" href="/Application/Home/Public/css/productlist.css?v=1"/>
+    <div class="contentBox6 product-content" style="min-height: 600px; ">
+        <ul id="tiles" class="picopacity">
+            <volist name="products" id="product">
+                <li>
+                    <a href="/page/detail?aid={$product.id}" target="_blank"><img class="lazy"  src="{$product.cover_image}"></a>
+                    <p><a href="/page/detail?aid={$product.id}" target="_blank">{$product.product_name}</a></p>
+                </li>
+            </volist>
+        </ul>
+    </div>
+</block>

@@ -14,6 +14,7 @@ use Think\Controller;
 class ProductController extends Controller
 {
 
+
     public function detail()
     {
         $id = I("pid");
@@ -27,5 +28,15 @@ class ProductController extends Controller
         $this->assign('suppliers', $result);
 
         $this->display('/product_detail');
+    }
+
+    /**
+     * 列表
+     */
+    public function lists()
+    {
+        $product = M("product")->select();
+        $this->assign('products' , $product);
+        $this->display('/product-list');
     }
 }

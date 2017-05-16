@@ -1,0 +1,28 @@
+
+.product-content ul {
+    overflow: hidden;
+    width: 1000px;
+}
+.product-content li {
+    background: #444 none repeat scroll 0 0;
+    float: left;
+    margin: 0 20px 20px 0;
+    position: relative;
+    width: 260px;
+}
+.product-content li img{
+    width: 260px;
+    height: 160px;
+}
+.product-content li:hover{
+    opacity: 0.8;
+}
+
+.product-content a {
+    color: #e5e5e5;
+    text-decoration: none;
+}
+
+.product-content li p {
+    padding: 5px 10px;
+}
